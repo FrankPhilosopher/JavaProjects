@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Sat Oct 13 09:14:46 CST 2012
+onejar.license.required=true
+manifest.classpath=jre
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=smarthome.jar
+manifest.mergeall=true
+manifest.mainclass=app.SmartHome
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=

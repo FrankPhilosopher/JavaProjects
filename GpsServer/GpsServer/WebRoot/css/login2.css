@@ -1,0 +1,11 @@
+﻿ body{ margin:0;background-color: #016aa9;}
+ *{ margin:0;padding:0; font-size:12px;}
+ 
+ .login_container{ width:968px; background:url(../images/login_03.gif) no-repeat; padding-top:235px; margin:auto;}
+ .login{ background:url(../images/login_05.gif) no-repeat; height:53px; overflow:hidden;}
+.login ul{ display:block; width:420px; }
+.login ul li{ list-style:none; display:block; height:24px; text-align:left; margin-top:2px; line-height:24px;}
+.login ul li span{float:left; width:150px; text-align:right; padding-right:10px;}
+.login ul li .txt{ width:105px; height:17px; background-color:#292929; border:solid 1px #7dbad7; font-size:12px; color:#6cd0ff}
+.loginbtn{ height:18px; background:url(../images/dl.gif) no-repeat; border:0;  width:49px; color:#fff;}
+.login_foot{ background:url(../images/login_08.gif) no-repeat; height:133px;}

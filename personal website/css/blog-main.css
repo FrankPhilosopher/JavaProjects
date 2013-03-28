@@ -1,0 +1,30 @@
+.mainfooter {
+    padding: 8px 10px;
+    margin: 15px 10px 10px 10px;
+    color: #977C57;
+    border: 1px solid #EEE8E1;
+    background: #FAF7F5;
+}
+
+.mainfooter .comments {
+    margin: 0 10px 0 5px;
+    padding: 7px 5px;
+    background: #FAF7F5 url(../images/comments.gif) no-repeat 0 2px;
+    padding-left: 30px;
+    color: #977C57;
+}
+
+.mainfooter .date {
+    margin: 0 10px 0 5px;
+    padding: 7px;
+    background: #FAF7F5 url(../images/clock.gif) no-repeat 0 2px;
+    padding-left: 30px;
+}
+
+.mainfooter .edit {
+    margin: 0 10px 0 5px;
+    padding: 7px 5px;
+    background: #FAF7F5 url(../images/edit-doc.gif) no-repeat 0 2px;
+    padding-left: 30px;
+    color: #977C57;
+}

@@ -1,0 +1,13 @@
+1.小心这种注释：
+<!-- <s:reset action="" type="input" src="<%=path%>/images/reset.gif" >重置</s:reset> -->
+
+由于里面用到了<%=path%>可能导致注释失败，报错！
+org.apache.jasper.JasperException: /mypages/yunwei/tab/basicinfo.jsp(103,46) attribute for %>" is not properly terminated
+
+2.表单重置
+（1）使用struts2的标签不方便
+<s:reset name="resetForm" type="input" value="重置" theme="simple" src=""></s:reset>
+（2）使用js，basicInfoForm是form的name属性，可以查看common.js文件
+	function resetForm() {
+		document.basicInfoForm.reset();//奇怪的是有时候一定要有document，有时候不需要document！对比这种写法和common.js中的写法
+	}

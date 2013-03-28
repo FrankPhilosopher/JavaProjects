@@ -1,0 +1,9 @@
+<<<<<<< .mine
+#Tue Sep 11 08:45:59 CST 2012
+=======
+#Tue Sep 11 13:52:58 CST 2012
+>>>>>>> .r70
+eclipse.preferences.version=1
+encoding//WebRoot/login.html=GBK
+encoding//WebRoot/register.html=GBK
+encoding/<project>=UTF-8

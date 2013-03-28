@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource smarthome.properties?>
+
+<AnchorPane id="AnchorPane" fx:id="namePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" styleClass="shell" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.NameEditController">
+  <children>
+    <Text stroke="BLACK" styleClass="shellTitle" text="%NameChange" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="6.0" />
+    <ImageView id="winmin" fx:id="ivWinmin" styleClass="winmin" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winmin.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <ImageView id="winclose" fx:id="ivWinclose" styleClass="winclose" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winclose.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <Label layoutX="43.0" layoutY="53.0" styleClass="smartLabel" text="请输入新的设备名称" />
+    <TextField fx:id="tfName" layoutX="43.0" layoutY="90.0" maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="232.0" />
+    <Label fx:id="lblMessage" layoutX="43.0" layoutY="125.0" prefWidth="202.0" styleClass="smartLabel" />
+    <Button fx:id="btnOk" layoutX="169.0" layoutY="161.0" mnemonicParsing="false" styleClass="itembtn" text="%ButtonOk" />
+    <Button fx:id="btnCancle" layoutX="227.0" layoutY="161.0" mnemonicParsing="false" styleClass="canclebtn" text="%ButtonCancel" />
+  </children>
+  <stylesheets>
+    <URL value="@smarthome.css" />
+  </stylesheets>
+</AnchorPane>

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>新增价格 - 物流管理系统</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<style media="all" type="text/css">@import "../style/all.css";</style>
+	<script type="text/javascript">
+		function del(url){
+			if(window.confirm("确认删除吗？")){
+				window.location.href=url;
+			}
+		}
+	</script>
+</head>
+<body style="background: none">
+			<div class="top-bar">
+				<h1>新增配送点间价格</h1>
+			</div>
+<form>
+		  <div class="select-bar">
+			<table class="select-table">
+			<tr>
+					<th>选择起始配送点</th>
+					<td>
+						<select style="width:130px">
+							<option>长沙市</option>
+							<option>广州市</option>
+							<option>深圳市</option>
+						</select>
+					</td>
+					<th>选择终点配送点</th>
+					<td>
+						<select style="width:130px">
+							<option>长沙市</option>
+							<option>广州市</option>
+							<option>深圳市</option>
+						</select>
+					</td>
+
+			 </tr>
+				<tr>
+					<th>首公斤价格</th>
+					<td><input type="text" name="textfield12" class="text" /> 元</td>
+					<th>次公斤价格</th>
+					<td><input type="text" name="textfield12" class="text" /> 元</td>					
+				</tr>
+				<tr>				
+					<th><input type="button" value="保 存"  class="button" />
+<input type="button"  class="button" value="返 回" /></th>				
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</table>
+			</div>
+	</form>
+			
+</body>
+</html>

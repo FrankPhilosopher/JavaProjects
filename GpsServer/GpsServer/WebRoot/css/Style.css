@@ -1,0 +1,31 @@
+form{
+margin: 0px;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.STYLE1 {
+		color:#033d61;
+		font-size: 12px;
+			}
+.STYLE3 {font-size: 12px; font-weight: bold; }
+.STYLE4 {
+	font-size: 13px;
+}
+.STYLE5 {
+	color: #FF000d;
+	font-size: 12px;
+}
+a{
+	text-decoration:none;
+	color:#033d61;
+	font-size: 12px;
+}
+a:hover {
+	text-decoration:underline;
+	text-shadow: true;
+	font-style: oblique;
+}

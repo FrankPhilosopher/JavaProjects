@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lightbuttons>
+	<lightbutton id="2">
+		<name>大厅灯控</name>
+		<icon>light</icon>
+		<intensity>100</intensity>
+	</lightbutton>
+	
+	<lightbutton id="3">
+		<name>卧室灯控2</name>
+		<icon>light</icon>
+		<intensity>100</intensity>
+	</lightbutton>
+
+	<lightbutton id="4">
+		<name>书房灯控3</name>
+		<icon>light</icon>
+		<intensity>100</intensity>
+	</lightbutton>
+</lightbuttons>

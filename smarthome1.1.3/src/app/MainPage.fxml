@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource smarthome.properties?>
+
+<AnchorPane id="AnchorPane" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" styleClass="mainshell" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.MainPageController">
+  <children>
+    <Text id="text1" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" styleClass="shellTitle" text="%SmartHome" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="6.0" />
+    <ImageView id="winmin" fx:id="ivWinmin" fitHeight="15.0" fitWidth="18.0" styleClass="winmin" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winmin.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <ImageView id="winclose" fx:id="ivWinclose" fitHeight="15.0" fitWidth="18.0" styleClass="winclose" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winclose.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <AnchorPane fx:id="centerPane" prefHeight="500.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="150.0" />
+    <StackPane id="stackPane3" prefHeight="100.0" prefWidth="1000.0" AnchorPane.topAnchor="45.0">
+      <children>
+        <GridPane id="gridPane2" fx:id="deviceGridPane" alignment="CENTER" prefHeight="72.0" prefWidth="200.0" StackPane.alignment="CENTER">
+          <children>
+            <ImageView fx:id="homeImageView" fitHeight="80.0" fitWidth="90.0" style="-fx-cursor:hand;" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+              <effect>
+                <Reflection fraction="0.3" />
+              </effect>
+              <image>
+                <Image url="@home128.png" preserveRatio="true" smooth="true" />
+              </image>
+            </ImageView>
+            <StackPane id="stackPane5" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+              <children>
+                <ImageView id="icon-overlay" fx:id="lightCoverLay" fitHeight="90.0" fitWidth="90.0" styleClass="navBoxBg">
+                  <effect>
+                    <Shadow color="LIME">
+                      <input>
+                        <DropShadow color="LIME" />
+                      </input>
+                    </Shadow>
+                  </effect>
+                  <image>
+                    <Image url="@icon-overlay.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+                <ImageView fx:id="lightImageView" fitHeight="80.0" fitWidth="80.0" style="-fx-cursor:hand;" styleClass="navBox">
+                  <effect>
+                    <InnerShadow height="10.0" radius="4.5" width="10.0">
+                      <input>
+                        <Reflection bottomOpacity="0.8" fraction="0.1" />
+                      </input>
+                    </InnerShadow>
+                  </effect>
+                  <image>
+                    <Image url="@light.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+              </children>
+            </StackPane>
+            <StackPane id="stackPane5" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+              <children>
+                <ImageView id="icon-overlay" fx:id="doorCoverLay" fitHeight="90.0" fitWidth="90.0" styleClass="navBoxBg">
+                  <effect>
+                    <Shadow color="LIME">
+                      <input>
+                        <DropShadow color="LIME" />
+                      </input>
+                    </Shadow>
+                  </effect>
+                  <image>
+                    <Image url="@icon-overlay.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+                <ImageView fx:id="doorImageView" fitHeight="80.0" fitWidth="80.0" style="-fx-cursor:hand;" styleClass="navBox">
+                  <effect>
+                    <InnerShadow height="10.0" radius="4.5" width="10.0">
+                      <input>
+                        <Reflection bottomOpacity="0.8" fraction="0.1" />
+                      </input>
+                    </InnerShadow>
+                  </effect>
+                  <image>
+                    <Image url="@doorwin.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+              </children>
+            </StackPane>
+            <StackPane id="stackPane5" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="0">
+              <children>
+                <ImageView fx:id="securityImageView" fitHeight="80.0" fitWidth="80.0" style="-fx-cursor:hand;" styleClass="navBox">
+                  <effect>
+                    <InnerShadow height="10.0" radius="4.5" width="10.0">
+                      <input>
+                        <Reflection bottomOpacity="0.8" fraction="0.1" />
+                      </input>
+                    </InnerShadow>
+                  </effect>
+                  <image>
+                    <Image url="@security.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+                <ImageView id="icon-overlay" fx:id="securityCoverLay" fitHeight="90.0" fitWidth="90.0" styleClass="navBoxBg">
+                  <effect>
+                    <Shadow color="LIME">
+                      <input>
+                        <DropShadow color="LIME" />
+                      </input>
+                    </Shadow>
+                  </effect>
+                  <image>
+                    <Image url="@icon-overlay.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+              </children>
+            </StackPane>
+            <StackPane id="stackPane5" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="0">
+              <children>
+                <ImageView id="icon-overlay" fx:id="cameraCoverLay" fitHeight="90.0" fitWidth="90.0" styleClass="navBoxBg">
+                  <effect>
+                    <Shadow color="LIME">
+                      <input>
+                        <DropShadow color="LIME" />
+                      </input>
+                    </Shadow>
+                  </effect>
+                  <image>
+                    <Image url="@icon-overlay.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+                <ImageView fx:id="cameraImageView" fitHeight="80.0" fitWidth="80.0" style="-fx-cursor:hand;" styleClass="navBox">
+                  <effect>
+                    <InnerShadow height="10.0" radius="4.5" width="10.0">
+                      <input>
+                        <Reflection bottomOpacity="0.8" fraction="0.1" />
+                      </input>
+                    </InnerShadow>
+                  </effect>
+                  <image>
+                    <Image url="@camera.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+              </children>
+            </StackPane>
+            <StackPane id="stackPane5" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="0">
+              <children>
+                <ImageView id="icon-overlay" fx:id="applianceCoverLay" fitHeight="90.0" fitWidth="90.0" styleClass="navBoxBg">
+                  <effect>
+                    <Shadow color="LIME">
+                      <input>
+                        <DropShadow color="LIME" />
+                      </input>
+                    </Shadow>
+                  </effect>
+                  <image>
+                    <Image url="@icon-overlay.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+                <ImageView fx:id="applianceImageView" fitHeight="80.0" fitWidth="80.0" style="-fx-cursor:hand;" styleClass="navBox">
+                  <effect>
+                    <InnerShadow height="10.0" radius="4.5" width="10.0">
+                      <input>
+                        <Reflection bottomOpacity="0.8" fraction="0.1" />
+                      </input>
+                    </InnerShadow>
+                  </effect>
+                  <image>
+                    <Image url="@appliance.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+              </children>
+            </StackPane>
+            <StackPane id="stackPane5" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+              <children>
+                <ImageView id="icon-overlay" fx:id="sceneCoverLay" fitHeight="90.0" fitWidth="90.0" styleClass="navBoxBg">
+                  <effect>
+                    <Shadow color="LIME">
+                      <input>
+                        <DropShadow color="LIME" />
+                      </input>
+                    </Shadow>
+                  </effect>
+                  <image>
+                    <Image url="@icon-overlay.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+                <ImageView fx:id="sceneImageView" fitHeight="80.0" fitWidth="80.0" style="-fx-cursor:hand;" styleClass="navBox">
+                  <effect>
+                    <InnerShadow height="10.0" radius="4.5" width="10.0">
+                      <input>
+                        <Reflection bottomOpacity="0.8" fraction="0.1" />
+                      </input>
+                    </InnerShadow>
+                  </effect>
+                  <image>
+                    <Image url="@scene.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+              </children>
+            </StackPane>
+            <StackPane id="stackPane5" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="0">
+              <children>
+                <ImageView id="icon-overlay" fx:id="musicCoverLay" fitHeight="90.0" fitWidth="90.0" style="-fx-cursor:hand;" styleClass="navBoxBg">
+                  <image>
+                    <Image url="@icon-overlay.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+                <ImageView fx:id="musicImageView" fitHeight="80.0" fitWidth="80.0" style="-fx-cursor:hand;" styleClass="navBox">
+                  <image>
+                    <Image url="@music.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+              </children>
+            </StackPane>
+            <StackPane id="stackPane5" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="0">
+              <children>
+                <ImageView id="icon-overlay" fx:id="settingCoverLay" fitHeight="90.0" fitWidth="90.0" styleClass="navBoxBg">
+                  <image>
+                    <Image url="@icon-overlay.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+                <ImageView fx:id="settingImageView" fitHeight="80.0" fitWidth="80.0" style="-fx-cursor:hand;" styleClass="navBox">
+                  <effect>
+                    <InnerShadow blurType="ONE_PASS_BOX" color="WHITE" />
+                  </effect>
+                  <image>
+                    <Image url="@setting.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+              </children>
+            </StackPane>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </children>
+    </StackPane>
+    <StackPane fx:id="footStackPane" prefHeight="40.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0">
+      <children>
+        <HBox id="HBox" alignment="CENTER_LEFT" padding="$x2" spacing="10.0" StackPane.alignment="CENTER_LEFT">
+          <children>
+            <Text id="text2" fill="#210066" scaleX="0.9596177947528621" scaleY="1.074057321166352" stroke="TRANSPARENT" text="%YongJingSienceAndTechnology" HBox.hgrow="SOMETIMES">
+              <font>
+                <Font name="System Bold" size="14.0" fx:id="x1" />
+              </font>
+            </Text>
+            <Hyperlink fx:id="companyUrl" prefHeight="22.0" prefWidth="115.0" text="%Hyperlink" textFill="RED" HBox.hgrow="SOMETIMES">
+              <font>
+                <Font name="System Bold Italic" size="12.0" />
+              </font>
+            </Hyperlink>
+            <ImageView id="home" fitHeight="20.0" fitWidth="20.0" HBox.hgrow="SOMETIMES">
+              <image>
+                <Image url="@user.jpg" preserveRatio="true" smooth="true" />
+              </image>
+              <HBox.margin>
+                <Insets left="30.0" />
+              </HBox.margin>
+            </ImageView>
+            <Label id="label1" fx:id="currentUser" prefHeight="20.0" prefWidth="140.0" text="CurrentLoginUser" textFill="#990000" HBox.hgrow="SOMETIMES">
+              <font>
+                <Font name="System Bold" size="12.0" />
+              </font>
+            </Label>
+            <HBox id="hBox1" fx:id="hbWarning" alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="530.0" HBox.hgrow="NEVER">
+              <children>
+                <ImageView id="warning" fitHeight="21.0" fitWidth="21.0" HBox.hgrow="SOMETIMES">
+                  <image>
+                    <Image url="@warning.png" preserveRatio="true" smooth="true" />
+                  </image>
+                  <HBox.margin>
+                    <Insets left="10.0" fx:id="x2" />
+                  </HBox.margin>
+                </ImageView>
+                <Label id="label2" fx:id="labelMessage" font="$x1" prefHeight="30.0" prefWidth="460.0" styleClass="smartLabel" text="%Message" textFill="RED" HBox.hgrow="SOMETIMES" HBox.margin="$x2" />
+              </children>
+            </HBox>
+          </children>
+        </HBox>
+      </children>
+    </StackPane>
+  </children>
+  <stylesheets>
+    <URL value="@smarthome.css" />
+  </stylesheets>
+</AnchorPane>

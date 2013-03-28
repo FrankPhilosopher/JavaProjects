@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource smarthome.properties?>
+
+<AnchorPane id="lightPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="998.0" styleClass="pane" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.ScenePaneController">
+  <children>
+    <AnchorPane fx:id="topPane" layoutX="4.0" layoutY="10.0" minHeight="40.0" prefHeight="40.0" prefWidth="961.0">
+      <children>
+        <Text fx:id="pageTitle" stroke="#3354ff" strokeLineCap="ROUND" strokeLineJoin="ROUND" styleClass="paneTitle" text="%SceneControl" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="10.0" />
+        <Button id="btnAdd" fx:id="btnAdd" layoutX="632.0" layoutY="12.0" mnemonicParsing="false" styleClass="itembtn" text="新建情景模式" />
+      </children>
+    </AnchorPane>
+    <AnchorPane fx:id="centerPane" prefHeight="420.0" prefWidth="980.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="65.0">
+      <children>
+        <ImageView fx:id="ivPrev" styleClass="ivPrev" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="180.0">
+          <image>
+            <Image url="@prev.png" preserveRatio="true" smooth="true" />
+          </image>
+        </ImageView>
+        <ImageView id="button-next1" fx:id="ivNext" styleClass="ivNext" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="180.0">
+          <image>
+            <Image url="@next.png" preserveRatio="true" smooth="true" />
+          </image>
+        </ImageView>
+        <TilePane fx:id="tilePane" layoutX="100.0" layoutY="31.0" prefHeight="390.0" prefWidth="770.0" />
+      </children>
+    </AnchorPane>
+  </children>
+  <stylesheets>
+    <URL value="@smarthome.css" />
+  </stylesheets>
+</AnchorPane>

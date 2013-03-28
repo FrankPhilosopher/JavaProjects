@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>订单查询 - 物流管理系统</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<style media="all" type="text/css">
+		@import "../style/all.css";
+		@import "../style/jquery/ui.all.css";
+	</style>
+	<script type="text/javascript" src="../script/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../script/jquery-ui-personalized-1.6rc6.min.js"></script>
+	<script type="text/javascript" src="../script/date.js"></script>
+	<script type="text/javascript" src='../script/common.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			datepicker('.date-six');
+		});
+		function del(url){
+			if(window.confirm("确认删除吗？")){
+				window.location.href=url;
+			}
+		}
+	</script>
+</head>
+<body style="background: none">
+	<div class="top-bar">
+				<!--a href="#" class="button">ADD NEW </a-->
+				<h1>查询配送范围及价格</h1>
+				<div class="breadcrumbs">
+					<div class="button-bar">
+						<input type="button" name="Submit" value="帮助?" class="button"/>			
+					</div>
+					<a href="index.html" target="_top">首页</a> / <a href="placepriceManager.html">配送范围及价格管理</a>
+				</div>
+			</div>
+	<form>
+		  <div class="select-bar">
+			<table class="select-table">
+				<tr>
+					<th>选择配送范围</th>
+					<td>
+						<select style="width:70px">
+							<option>岳麓区</option>
+							<option>浏阳</option>
+							<option>望城</option>
+						</select>
+					</td>
+					<th></th>
+					<td></td>
+				</tr>
+				<tr>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>				
+				</tr>
+				<tr>				
+					<th><input type="button" name="Submit" onclick="javascript:window.location.href='deleteProduct.html'" value="点击查询" class="button"/></th>				
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+
+			</table>
+
+
+
+
+
+	</form>
+		  </div>
+			<div class="table">
+				<img src="../style/img/bg-th-left.gif" width="8" height="7" alt="" class="left" />
+				<img src="../style/img/bg-th-right.gif" width="7" height="7" alt="" class="right" />
+				<table class="listing" cellpadding="0" cellspacing="0">
+					<tr>	
+						<th>配送点名称</th>	
+						<th>配送范围</th>			
+						<th>配送时间</th>
+						<th>配送价格</th>
+						<th>配送范围备注</th>	
+						<th>配送范围</th>			
+						<th>配送时间</th>
+						<th>配送价格</th>
+						<th>备注</th>	
+						<th>操作</th>
+					</tr>
+					<tr>
+						<td class="first style1"><a href="#">浏阳</a></td>
+						<td><a href="../cus/detail.html">浏阳市</a></td>
+						<td>8:00-20:00</td>
+						<td>5.0 RMB</td>
+						<td>边缘地区不配送</td>
+						<td class="last">
+							<img src="../style/img/bt_del.gif" onclick="javascript:window.location='deleteOreder.html'" width="16" height="16" alt="退订" />
+							<img src="../style/img/edit-icon.gif" onclick="javascript:window.location='updateAddProc.html'" width="16" height="16" alt="换货" />
+							<img src="../style/img/hr.gif" onclick="javascript:window.location='delProcList.html'" width="16" height="16" alt="退货" />
+						</td>
+					</tr>
+				</table>
+				<div class="pager">
+					共59条记录 每页<input type="text" class="text" size="2" value="10"/>条
+					第1页/共5页
+					<a href="#">第一页</a>
+					<a href="#">上一页</a>
+					<a href="#">下一页</a>
+					<a href="#">最后一页</a>
+					转到<input type="text" class="text" size="1" value="1"/>页
+					<input type="button" class="button" onclick="" value="GO"/>
+				</div>
+			</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+form {
+    margin: 20px 10px;
+    padding: 15px 25px 25px 20px;
+    border: 1px solid #EEE8E1;
+    background: #FAF7F5;
+}
+form p {
+    border-bottom: 1px solid #ECE5DD;
+    padding: 12px 0 5px 0;
+    color: #9D6D37;
+}
+label {
+    position:relative;
+    left:-22px;
+    margin:0;
+    padding:0;
+    text-align: left;
+    font-weight: bold;
+    color: #A7743B;
+}
+input, select, textarea {
+    margin: 5px 0;
+    padding: 5px;
+    color: #6A6969;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d4d4d4 #ebebeb #ebebeb #d4d4d4;
+}
+
+#name, #email, #message, #website {
+    width: 455px;
+}
+
+input.button {
+    font: bold 12px Arial, Sans-serif;
+    height: 30px;
+    margin: 0;
+    padding: 2px 3px;
+    color: #fff;
+    background: #A6CD56;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #C4DE8F #8DB836 #8DB836 #C4DE8F;
+    cursor: pointer;
+}
+

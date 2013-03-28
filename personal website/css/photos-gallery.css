@@ -1,0 +1,85 @@
+div {
+    border: 0 none;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: top;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    border: 0;
+    vertical-align: top;
+    text-align: left;
+}
+
+.carousel-box {
+    position: relative;
+    margin: 40px auto 20px auto;
+    width: 700px;
+}
+
+.carousel-box .inner {
+    padding: 0 !important;
+}
+
+.carousel-box ul {
+    width: 701px;
+    height: 471px;
+    overflow: hidden;
+}
+
+.carousel-box ul li {
+    width: 701px;
+    overflow: hidden;
+}
+
+.carousel-box ul li img {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.carousel-box ul li img.extra {
+    margin: 0 0 10px 0;
+}
+
+.carousel-box button.prev {
+    background: url(../images/button-prev.png) no-repeat 0% 0%;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border: none;
+    position: absolute;
+    top: 201px;
+    left: -31px;
+    z-index: 100;
+    cursor: pointer;
+    outline: none;
+}
+
+.carousel-box button.prev:hover {
+    background-position: 0% -60px;
+}
+
+.carousel-box button.next {
+    background: url(../images/button-next.png) no-repeat 0% 0%;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border: none;
+    position: absolute;
+    top: 201px;
+    right: -31px;
+    z-index: 100;
+    cursor: pointer;
+    outline: none;
+}
+
+.carousel-box button.next:hover {
+    background-position: 0% -60px;
+}

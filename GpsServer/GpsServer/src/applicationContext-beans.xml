@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	">
+
+	<!-- ============================== Action层 start============================== -->
+
+	<!-- wuxuehong -->
+	<bean name="UserAction" class="com.ztdz.actions.UserAction" scope="prototype">
+		<property name="userService">
+			<ref bean="UserService" />
+		</property>
+		<property name="logService">
+			<ref bean="LogService" />
+		</property>
+		<property name="organizationServiceImpl">
+			<ref bean="OrganizationService" />
+		</property>
+		<property name="areaServiceImpl">
+			<ref bean="AreaService" />
+		</property>
+		<property name="terminalServiceImpl">
+			<ref bean="TerminalService" />
+		</property>
+	</bean>
+	<bean name="GroupAction" class="com.ztdz.actions.GroupAction"
+		scope="session">
+		<property name="userService">
+			<ref bean="UserService" />
+		</property>
+		<property name="logService">
+			<ref bean="LogService" />
+		</property>
+		<property name="organizationService">
+			<ref bean="OrganizationService" />
+		</property>
+		<property name="terminalService">
+			<ref bean="TerminalService" />
+		</property>
+		<property name="carInfoService">
+			<ref bean="CarInfoService" />
+		</property>
+		<property name="accountService">
+			<ref bean="AccountService" />
+		</property>
+		<property name="tempPositionService">
+			<ref bean="TempPositionService" />
+		</property>
+		<property name="areaService">
+			<ref bean="AreaService" />
+		</property>
+	</bean>
+	<bean name="TerminalAction" class="com.ztdz.actions.TerminalAction"
+		scope="prototype">
+		<property name="tempPositionService">
+			<ref bean="TempPositionService" />
+		</property>
+		<property name="positionService">
+			<ref bean="PositionService" />
+		</property>
+		<property name="terminalService">
+			<ref bean="TerminalService" />
+		</property>
+	</bean>
+	<bean name="AddressAction" class="com.ztdz.actions.AddressAction"
+		scope="prototype">
+	</bean>
+	<bean name="PriorityAction" class="com.ztdz.actions.PriorityAction"
+		scope="prototype">
+		<property name="requestService">
+			<ref bean="RequestService" />
+		</property>
+		<property name="responseService">
+			<ref bean="ResponseService" />
+		</property>
+		<property name="terminalService">
+			<ref bean="TerminalService" />
+		</property>
+		<property name="logService">
+			<ref bean="LogService" />
+		</property>
+	</bean>
+	<bean name="PositionAction" class="com.ztdz.actions.PositionAction"
+		scope="prototype">
+		<property name="tempPositionService">
+			<ref bean="TempPositionService" />
+		</property>
+	</bean>
+	<!-- end -->
+
+	<!-- weijiyuan -->
+	<bean name="AdminAction" class="com.ztdz.actions.AdminAction"
+		scope="session">
+		<property name="userService">
+			<ref bean="UserService" />
+		</property>
+		<property name="logService">
+			<ref bean="LogService" />
+		</property>
+		<property name="organizationService">
+			<ref bean="OrganizationService" />
+		</property>
+		<property name="areaService">
+			<ref bean="AreaService" />
+		</property>
+		<property name="carInfoService">
+			<ref bean="CarInfoService" />
+		</property>
+		<property name="accountService">
+			<ref bean="AccountService" />
+		</property>
+		<property name="terminalService">
+			<ref bean="TerminalService" />
+		</property>
+		<property name="tempPositionService">
+			<ref bean="TempPositionService" />
+		</property>
+	</bean>
+	<bean name="AreaAjaxAction" class="com.ztdz.actions.AreaAjaxAction">
+		<property name="areaService">
+			<ref bean="AreaService" />
+		</property>
+	</bean>
+	<bean name="ChangeGroupAjaxAction" class="com.ztdz.actions.ChangeGroupAjaxAction">
+		<property name="organizationService">
+			<ref bean="OrganizationService" />
+		</property>
+	</bean>
+
+	<!-- end -->
+
+	<!-- hujiawei -->
+	<bean name="YunWeiAction" class="com.ztdz.actions.YunWeiAction"
+		scope="session">
+		<property name="userService">
+			<ref bean="UserService" />
+		</property>
+		<property name="logService">
+			<ref bean="LogService" />
+		</property>
+		<property name="organizationService">
+			<ref bean="OrganizationService" />
+		</property>
+		<property name="areaService">
+			<ref bean="AreaService" />
+		</property>
+		<property name="accountService">
+			<ref bean="AccountService" />
+		</property>
+		<property name="terminalService">
+			<ref bean="TerminalService" />
+		</property>
+		<property name="carInfoService">
+			<ref bean="CarInfoService" />
+		</property>
+		<property name="tempPositionService">
+			<ref bean="TempPositionService" />
+		</property>
+	</bean>
+	<bean name="JiTuanAction" class="com.ztdz.actions.JiTuanAction"
+		scope="session">
+		<property name="userService">
+			<ref bean="UserService" />
+		</property>
+		<property name="logService">
+			<ref bean="LogService" />
+		</property>
+		<property name="organizationService">
+			<ref bean="OrganizationService" />
+		</property>
+		<property name="areaService">
+			<ref bean="AreaService" />
+		</property>
+		<property name="accountService">
+			<ref bean="AccountService" />
+		</property>
+		<property name="terminalService">
+			<ref bean="TerminalService" />
+		</property>
+		<property name="carInfoService">
+			<ref bean="CarInfoService" />
+		</property>
+		<property name="tempPositionService">
+			<ref bean="TempPositionService" />
+		</property>
+	</bean>
+
+	<!-- end -->
+
+	<!-- ============================== Action层 end ============================== -->
+
+
+
+
+	<!-- ============================== Service层start ============================== -->
+	<!-- wuxuehong -->
+
+	<!-- end -->
+
+
+	<!-- weijiyuan -->
+
+	<bean name="UserService" class="com.ztdz.service.impl.UserServiceImpl">
+		<property name="userDao">
+			<ref bean="TUserDAO" />
+		</property>
+	</bean>
+
+	<bean name="OrganizationService" class="com.ztdz.service.impl.OrganizationServiceImpl">
+		<property name="tOrgainzationDAO">
+			<ref bean="TOrgainzationDAO" />
+		</property>
+	</bean>
+
+	<bean name="CarInfoService" class="com.ztdz.service.impl.CarInfoServiceImpl">
+		<property name="tCarInfoDAO">
+			<ref bean="TCarInfoDAO" />
+		</property>
+	</bean>
+
+	<bean name="AreaService" class="com.ztdz.service.impl.AreaServiceImpl">
+		<property name="tAreaDAO">
+			<ref bean="TAreaDAO" />
+		</property>
+	</bean>
+
+	<bean name="LogService" class="com.ztdz.service.impl.LogServiceImpl">
+		<property name="tLogDAO">
+			<ref bean="TLogDAO" />
+		</property>
+	</bean>
+
+	<bean name="FenceService" class="com.ztdz.service.impl.FenceServiceImpl">
+		<property name="tFenceDAO">
+			<ref bean="TFenceDAO" />
+		</property>
+	</bean>
+
+	<bean name="RequestService" class="com.ztdz.service.impl.RequestServiceImpl">
+		<property name="tRequestDAO">
+			<ref bean="TRequestDAO" />
+		</property>
+	</bean>
+
+	<bean name="ResponseService" class="com.ztdz.service.impl.ResponseServiceImpl">
+		<property name="tResponseDAO">
+			<ref bean="TResponseDAO" />
+		</property>
+	</bean>
+
+	<bean name="TempLatlngService" class="com.ztdz.service.impl.TempLatlngServiceImpl">
+		<property name="tempLatlngDAO">
+			<ref bean="TTempLatlngDAO" />
+		</property>
+	</bean>
+
+	<bean name="AccountService" class="com.ztdz.service.impl.AccountServiceImpl">
+		<property name="accountDAO">
+			<ref bean="TAccountDAO" />
+		</property>
+	</bean>
+
+	<bean name="TerminalService" class="com.ztdz.service.impl.TerminalServiceImpl">
+		<property name="terminalDAO">
+			<ref bean="TTerminalDAO" />
+		</property>
+	</bean>
+
+	<bean name="TempPositionService" class="com.ztdz.service.impl.TempPositionServiceImpl">
+		<property name="tempPositionDAO">
+			<ref bean="TTempPositionDAO" />
+		</property>
+	</bean>
+
+	<bean name="PositionService" class="com.ztdz.service.impl.PositionServiceImpl">
+		<property name="positionDAO">
+			<ref bean="TPositionDAO" />
+		</property>
+	</bean>
+
+	<!-- end -->
+
+
+	<!-- hujiawei -->
+
+	<!-- end -->
+	<!-- ============================== Service层 end============================== -->
+
+
+
+	<!-- ============================== Dao层 ============================== -->
+	<bean id="TAreaDAO" class="com.ztdz.dao.impl.TAreaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TCarInfoDAO" class="com.ztdz.dao.impl.TCarInfoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TFenceDAO" class="com.ztdz.dao.impl.TFenceDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TRequestDAO" class="com.ztdz.dao.impl.TRequestDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TTempLatlngDAO" class="com.ztdz.dao.impl.TTempLatlngDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TResponseDAO" class="com.ztdz.dao.impl.TResponseDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TOrgainzationDAO" class="com.ztdz.dao.impl.TOrgainzationDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TUserDAO" class="com.ztdz.dao.impl.TUserDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TLogDAO" class="com.ztdz.dao.impl.TLogDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TTempPositionDAO" class="com.ztdz.dao.impl.TTempPositionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TAccountDAO" class="com.ztdz.dao.impl.TAccountDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TTerminalDAO" class="com.ztdz.dao.impl.TTerminalDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TPositionDAO" class="com.ztdz.dao.impl.TPositionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- end -->
+</beans>

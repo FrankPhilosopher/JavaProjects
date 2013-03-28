@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <!--扩展application-->
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="com.yinger.patientims.Application">
+         </run>
+      </application>
+   </extension>
+   
+   <!--扩展perspectives-->
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.yinger.patientims.Perspective"
+            icon="icons/Home.ico"
+            id="com.yinger.patientims.perspective"
+            name="PatientIMS Perspective">
+      </perspective>
+   </extension>
+   
+   <!-- 扩展Views -->
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="com.yinger.patientims.views.NavigatorView"
+            icon="icons/Stats.ico"
+            id="com.yinger.patientims.views.NavigatorView"
+            name="Navigator"
+            restorable="true">
+      </view>
+      <view
+            class="com.yinger.patientims.views.SearchView"
+            icon="icons/Search.ico"
+            id="com.yinger.patientims.views.SearchView"
+            name="Search"
+            restorable="true">
+      </view>
+      <view
+            class="com.yinger.patientims.views.PatientInfoView"
+            icon="icons/User.ico"
+            id="com.yinger.patientims.views.PatientInfoView"
+            name="PatientInformation"
+            restorable="true">
+      </view>
+      <view
+            class="com.yinger.patientims.views.ExpenseInfoView"
+            icon="icons/Temporary.ico"
+            id="com.yinger.patientims.views.ExpenseInfoView"
+            name="ExpenseInformation"
+            restorable="true">
+      </view>
+   </extension>
+   
+   <!-- 扩展editors -->
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.yinger.patientims.editors.PatientInfoEditor"
+            default="false"
+            icon="icons/User.ico"
+            id="com.yinger.patientims.editors.PatientInfoEditor"
+            name="Patient Information Management">
+      </editor>
+      <editor
+            class="com.yinger.patientims.editors.DiagnoseInfoEditor"
+            default="false"
+            icon="icons/Package.ico"
+            id="com.yinger.patientims.editors.DiagnoseInfoEditor"
+            name="Diagnose Information Management">
+      </editor>
+      <editor
+            class="com.yinger.patientims.editors.ExpenseInfoEditor"
+            default="false"
+            icon="icons/Temporary.ico"
+            id="com.yinger.patientims.editors.ExpenseInfoEditor"
+            name="Expense Information Management">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="PatientIMS.PatientEditorContribution"
+            targetID="com.yinger.patientims.editors.PatientInfoEditor">
+         <menu
+               id="com.yinger.patientims.editmenu"
+               label="&amp;Edit"
+               path="file">
+            <separator
+                  name="separator1">
+            </separator>
+         </menu>
+         <action
+               class="com.yinger.patientims.editors.editorActionDelegate.PatientEditorActionDelegate"
+               icon="icons/small/add.gif"
+               id="com.yinger.patientims.actions.AddPatientInfomationAction"
+               label="AddPatientInfomation"
+               menubarPath="com.yinger.patientims.editmenu/separator1"
+               style="push"
+               tooltip="Add Patient Infomation">
+         </action>
+      </editorContribution>
+   </extension>
+   
+    <!-- 扩展PreferencePages -->
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.yinger.patientims.preferencePages.LoginPreferencePage"
+            id="com.yinger.patientims.preferencePages.LoginPreferencePage"
+            name="LoginPreferencePage">
+      </page>
+   </extension>
+   
+   <!-- 扩展Product -->
+   <extension
+         id="patientims"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.yinger.patientims.application"
+            name="PatientIMS">
+         <property
+               name="appName"
+               value="PatientIMS">
+         </property>
+         <property
+               name="aboutImage"
+               value="icons/orignal/alt_about.gif">
+         </property>
+         <property
+               name="aboutText"
+               value="This is my first RCP Product named Patient Information &#x0A;Management System.Hope you like it!">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/orignal/alt_window_16.gif,icons/orignal/alt_window_32.gif">
+         </property>
+     <property
+           name="startupForegroundColor"
+           value="000000">
+     </property>
+     <property
+           name="startupMessageRect"
+           value="7,252,445,20">
+     </property>
+     <property
+           name="startupProgressRect"
+           value="5,275,445,15">
+     </property>
+     <property
+           name="preferenceCustomization"
+           value="plugin_customization.ini">
+     </property>
+      </product>
+   </extension>
+   
+   <!-- 扩展intro -->
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="com.yinger.patientims.intro">
+      </intro>
+      <introProductBinding
+            introId="com.yinger.patientims.intro"
+            productId="com.yinger.patientims.patientims">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            content="introContent.xml"
+            id="com.yinger.patientims.introConfigId"
+            introId="com.yinger.patientims.intro">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx"
+                  style="content/shared.css">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+   
+</plugin>

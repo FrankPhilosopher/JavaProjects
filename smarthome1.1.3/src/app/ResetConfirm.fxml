@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource smarthome.properties?>
+
+<AnchorPane id="AnchorPane" fx:id="resetPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" styleClass="shell" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.ResetConfirmController">
+  <children>
+    <Text stroke="BLACK" styleClass="shellTitle" text="还原确认" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="6.0" />
+    <ImageView id="winmin" fx:id="ivWinmin" styleClass="winmin" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winmin.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <ImageView fx:id="ivWinclose" styleClass="winclose" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winclose.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <Button fx:id="btnCancle" mnemonicParsing="false" styleClass="canclebtn" text="%ButtonCancel" AnchorPane.bottomAnchor="28.0" AnchorPane.rightAnchor="41.0" />
+    <Button fx:id="btnOk" mnemonicParsing="false" styleClass="itembtn" text="%ButtonOk" AnchorPane.bottomAnchor="28.0" AnchorPane.rightAnchor="112.0" />
+    <ImageView id="hj" blendMode="MULTIPLY" layoutX="43.0" layoutY="54.0">
+      <image>
+        <Image url="@hj.jpg" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <Label layoutX="175.0" layoutY="54.0" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" styleClass="smartLabel" text="还原初始配置将删除所有添加的情景模式和摄像头设备,并且将所有设备的名称还原成初始名称。您确定要还原吗？" wrapText="true" />
+  </children>
+  <stylesheets>
+    <URL value="@smarthome.css" />
+  </stylesheets>
+</AnchorPane>

@@ -1,0 +1,13 @@
+source.. = src/
+output.. = bin/
+bin.includes = plugin.xml,\
+               META-INF/,\
+               .,\
+               splash.bmp,\
+               plugin_customization.ini,\
+               patientims.product,\
+               introContent.xml,\
+               icons/,\
+               build.properties,\
+               mysql-connector-java-5.1.16-bin.jar
+jars.extra.classpath = mysql-connector-java-5.1.16-bin.jar

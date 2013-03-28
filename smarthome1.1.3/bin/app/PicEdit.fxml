@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource smarthome.properties?>
+
+<AnchorPane id="configAnchorPane" fx:id="picPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="400.0" styleClass="shell" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.PicEditController">
+  <children>
+    <Text fx:id="configTitleText" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" styleClass="shellTitle" text="修改图片" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="6.0">
+      <font>
+        <Font name="System Bold" size="16.0" />
+      </font>
+    </Text>
+    <ImageView id="winmin" fx:id="ivWinmin" styleClass="winmin" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winmin.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <ImageView id="winclose" fx:id="ivWinclose" styleClass="winclose" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winclose.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <ScrollPane blendMode="MULTIPLY" layoutX="26.0" layoutY="47.0" prefHeight="210.0" prefWidth="350.0">
+      <content>
+        <TilePane fx:id="picTilePane" prefHeight="200.0" prefWidth="330.0" />
+      </content>
+    </ScrollPane>
+    <Button id="button1" fx:id="btnOk" defaultButton="true" prefHeight="24.0" prefWidth="66.0" styleClass="itembtn" text="%ButtonOk" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="107.0">
+      <font>
+        <Font name="System Bold" size="14.0" fx:id="x1" />
+      </font>
+    </Button>
+    <Button id="button2" fx:id="btnCancle" font="$x1" prefHeight="24.0" prefWidth="66.00012207" styleClass="canclebtn" text="%ButtonCancel" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="24.0" />
+  </children>
+  <stylesheets>
+    <URL value="@smarthome.css" />
+  </stylesheets>
+</AnchorPane>

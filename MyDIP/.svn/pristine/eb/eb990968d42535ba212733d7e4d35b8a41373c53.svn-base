@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MyDIP
+Bundle-SymbolicName: MyDIP; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: mydip.Activator
+Bundle-Vendor: yinger
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.core.resources
+Bundle-ClassPath: jfreechart/jcommon-1.0.0-pre2.jar,
+ jfreechart/jfreechart-1.0.0-pre2.jar,
+ .

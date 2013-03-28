@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource smarthome.properties?>
+
+<AnchorPane id="AnchorPane" fx:id="loginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="360.0" styleClass="loginShell" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.LoginController">
+  <children>
+    <AnchorPane id="loginWaitPane" fx:id="loginWaitingPane" layoutY="74.0" prefHeight="200.0" prefWidth="360.0">
+      <children>
+        <Text stroke="BLACK" text="%LoginWaiting" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="30.0">
+          <font>
+            <Font size="14.0" />
+          </font>
+        </Text>
+        <ImageView id="wait" layoutX="138.0" AnchorPane.topAnchor="60.0">
+          <image>
+            <Image url="@wait.gif" preserveRatio="true" smooth="true" />
+          </image>
+        </ImageView>
+        <ImageView id="cancle" fx:id="ivCancle" styleClass="canclebtn" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="140.0">
+          <image>
+            <Image url="@cancle.png" preserveRatio="true" smooth="true" />
+          </image>
+        </ImageView>
+      </children>
+    </AnchorPane>
+    <AnchorPane id="AnchorPane" fx:id="loginViewPane" layoutY="74.0" prefHeight="200.0" prefWidth="360.0">
+      <children>
+        <ImageView id="home128" layoutX="11.0" layoutY="25.0">
+          <image>
+            <Image url="@home128.png" preserveRatio="true" smooth="true" />
+          </image>
+        </ImageView>
+        <CheckBox fx:id="cbRemeber" layoutX="146.0" layoutY="88.0" styleClass="smartLabel" text="%Remember">
+          <font>
+            <Font name="System Bold" size="15.0" fx:id="x1" />
+          </font>
+        </CheckBox>
+        <CheckBox fx:id="cbAutoLogin" font="$x1" layoutX="262.0" layoutY="88.0" styleClass="smartLabel" text="%AutoLogin" />
+        <RadioButton fx:id="rbGateway" font="$x1" layoutX="146.0" layoutY="121.0" selected="true" styleClass="smartLabel" text="%Gateway">
+          <toggleGroup>
+            <ToggleGroup fx:id="x2" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="rbServer" font="$x1" layoutX="262.0" layoutY="121.0" styleClass="smartLabel" text="%Server" textAlignment="CENTER" toggleGroup="$x2" />
+        <TextField fx:id="tfName" layoutX="147.0" layoutY="18.0" prefWidth="200.0" promptText="%UserName" />
+        <PasswordField fx:id="tfPassword" layoutX="147.0" layoutY="54.0" prefWidth="200.0" promptText="%Password" />
+        <Button fx:id="btnConfig" mnemonicParsing="false" styleClass="itembtn" text="%ServerSetting" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="160.0" />
+        <ImageView id="login" fx:id="ivLogin" layoutX="202.0" layoutY="156.0" styleClass="loginbtn">
+          <image>
+            <Image url="@login.png" preserveRatio="true" smooth="true" />
+          </image>
+        </ImageView>
+      </children>
+    </AnchorPane>
+    <Label id="lblMessage" fx:id="warningMessage" layoutX="28.0" layoutY="274.0" prefHeight="26.0" prefWidth="305.0" styleClass="loginMessage" />
+    <Text stroke="BLACK" styleClass="shellTitle" text="%LoginTitle" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="6.0" />
+    <ImageView id="winmin" fx:id="ivWinmin" styleClass="winmin" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winmin.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <ImageView id="winclose" fx:id="ivWinclose" styleClass="winclose" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winclose.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+  </children>
+  <stylesheets>
+    <URL value="@smarthome.css" />
+  </stylesheets>
+</AnchorPane>

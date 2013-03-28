@@ -1,0 +1,223 @@
+0.图像类型
+/**
+	 * Image format constant indicating an unknown image type (value is -1).
+	 */
+	public static final int IMAGE_UNDEFINED = -1;
+
+	/**
+	 * Image format constant indicating a Windows BMP format image (value is 0).
+	 */
+	public static final int IMAGE_BMP = 0;
+
+	/**
+	 * Image format constant indicating a run-length encoded 
+	 * Windows BMP format image (value is 1).
+	 */
+	public static final int IMAGE_BMP_RLE = 1;
+
+	/**
+	 * Image format constant indicating a GIF format image (value is 2).
+	 */
+	public static final int IMAGE_GIF = 2;
+
+	/**
+	 * Image format constant indicating a ICO format image (value is 3).
+	 */
+	public static final int IMAGE_ICO = 3;
+
+	/**
+	 * Image format constant indicating a JPEG format image (value is 4).
+	 */
+	public static final int IMAGE_JPEG = 4;
+
+	/**
+	 * Image format constant indicating a PNG format image (value is 5).
+	 */
+	public static final int IMAGE_PNG = 5;
+
+	/**
+	 * Image format constant indicating a TIFF format image (value is 6).
+	 */
+	public static final int IMAGE_TIFF = 6;
+
+	/**
+	 * Image format constant indicating an OS/2 BMP format image (value is 7).
+	 */
+	public static final int IMAGE_OS2_BMP = 7;
+
+	/**
+	 * GIF image disposal method constants indicating that the
+	 * disposal method is unspecified (value is 0).
+	 */
+	public static final int DM_UNSPECIFIED = 0x0;
+
+	/**
+	 * GIF image disposal method constants indicating that the
+	 * disposal method is to do nothing; that is, to leave the 
+	 * previous image in place (value is 1).
+	 */
+	public static final int DM_FILL_NONE = 0x1;
+
+	/**
+	 * GIF image disposal method constants indicating that the
+	 * the previous images should be covered with the background
+	 * color before displaying the next image (value is 2).
+	 */
+	public static final int DM_FILL_BACKGROUND = 0x2;
+
+	/**
+	 * GIF image disposal method constants indicating that the
+	 * disposal method is to restore the previous picture
+	 * (value is 3).
+	 */
+	public static final int DM_FILL_PREVIOUS = 0x3;
+	
+	/**
+	 * Image transparency constant indicating that the image
+	 * contains no transparency information (value is 0).
+	 */
+	public static final int TRANSPARENCY_NONE = 0x0;
+	
+	/**
+	 * Image transparency constant indicating that the image
+	 * contains alpha transparency information (value is 1&lt;&lt;0).
+	 */
+	public static final int TRANSPARENCY_ALPHA = 1 << 0;
+	
+	/**
+	 * Image transparency constant indicating that the image
+	 * contains a transparency mask (value is 1&lt;&lt;1).
+	 */
+	public static final int TRANSPARENCY_MASK = 1 << 1;
+	
+	/**
+	 * Image transparency constant indicating that the image
+	 * contains a transparent pixel (value is 1&lt;&lt;2).
+	 */
+	public static final int TRANSPARENCY_PIXEL = 1 << 2;
+
+
+1.上一个版本的canvas
+//		final Canvas canvas = new Canvas(com1, SWT.BORDER);
+//		canvas.setSize(2000, 2000);
+//		canvas.setLayout(new FillLayout());
+//		canvas.addPaintListener(new PaintListener() {
+//			@Override
+//			public void paintControl(PaintEvent e) {
+//				if (imagesrc != null) {
+//					e.gc.drawImage(imagesrc, 0, 0);// canvas就是用于显示图像
+//					canvas.setSize(imagesrc.getBounds().width, imagesrc.getBounds().height);
+//					// 根据大小设置是否显示滚动条
+//				}
+//			}
+//		});
+//		// 当图片很大时，要控制图片的显示
+////		com1.setSize(viewForm.getBounds().width, viewForm.getBounds().height);
+//		final ScrollBar hBar = com1.getHorizontalBar();
+////		hBar.setMaximum(imagesrc.getBounds().width-com1.getBounds().width);
+//		hBar.setMaximum(canvas.getBounds().width);
+//		hBar.addListener(SWT.Selection, new Listener() {
+//			public void handleEvent(Event e) {
+////				hBar.setMaximum(imagesrc.getBounds().width-com1.getClientArea().width);//在这里设置Max没有用！
+//				Point location = canvas.getLocation();
+//				location.x = -hBar.getSelection();// selection是指滚动条距离左边的距离值
+//				canvas.setLocation(location);
+//			}
+//		});
+//		final ScrollBar vBar = com1.getVerticalBar();
+//		vBar.setMaximum(canvas.getBounds().height);
+//		vBar.addListener(SWT.Selection, new Listener() {
+//			public void handleEvent(Event e) {
+//				Point location = canvas.getLocation();
+//				location.y = -vBar.getSelection();
+//				canvas.setLocation(location);
+//			}
+//		});
+//
+//		final Point[] offset = new Point[1];
+//		Listener mouseListener = new Listener() {
+//			public void handleEvent(Event event) {
+//				switch (event.type) {
+//				case SWT.MouseDown:
+//					Rectangle rect = canvas.getBounds();
+//					if (rect.contains(event.x, event.y)) {
+//						Point pt1 = canvas.toDisplay(0, 0);
+//						Point pt2 = com1.toDisplay(event.x, event.y);
+//						offset[0] = new Point(pt2.x - pt1.x, pt2.y - pt1.y);
+//					}
+//					break;
+//				case SWT.MouseMove:
+//					if (offset[0] != null) {
+//						Point pt = offset[0];
+//						canvas.setLocation(event.x - pt.x, event.y - pt.y);
+//						System.out.println("x : " + event.x + " y : " + event.y);
+//						hBar.setSelection(pt.x - event.x);
+//						vBar.setSelection(pt.y - event.y);
+//					}
+//					break;
+//				case SWT.MouseUp:
+//					offset[0] = null;
+//					break;
+//				}
+//			}
+//		};
+//		com1.addListener(SWT.MouseDown, mouseListener);
+//		com1.addListener(SWT.MouseUp, mouseListener);
+//		com1.addListener(SWT.MouseMove, mouseListener);
+
+
+2.不是很好的editor布局
+		final Composite com_center  = new Composite(viewForm, SWT.NONE);
+		com_center.setLayout(new FillLayout(SWT.VERTICAL));
+
+//		final Composite com_up = new Composite(com_center, SWT.NONE);
+//		com_up.setLayout(new FillLayout(SWT.HORIZONTAL));
+//		
+//		ImageCanvas canvas1 = new ImageCanvas(com_up, SWT.NONE);
+//		canvas1.setImage(imagesrc);
+//		
+//		Label label_spe = new Label(com_up, SWT.SEPARATOR | SWT.VERTICAL);
+//		label_spe.setText("");
+////		label.setBounds(295, 84, 20, 64);
+//		label_spe.setBounds(canvas1.getBounds().width+canvas1.getBounds().x,canvas1.getBounds().y, 8,canvas1.getBounds().y+canvas1.getBounds().height);
+//		
+//		ImageCanvas canvas2 = new ImageCanvas(com_up, SWT.NONE);
+//		canvas2.setImage(imagesrc);
+//		
+//		final Composite com_down = new Composite(com_center, SWT.NONE);
+//		com_down.setLayout(new FillLayout(SWT.HORIZONTAL));
+//		
+//		Group grp_src = new Group(com_down, SWT.NONE);
+//		grp_src.setText("Source Image Information");
+//		
+//		Label lblLabelsrc = new Label(grp_src, SWT.NONE);
+//		lblLabelsrc.setBounds(99, 90, 61, 17);
+//		lblLabelsrc.setText("label_src");
+//		
+//		Label label_spe2 = new Label(com_down, SWT.SEPARATOR | SWT.VERTICAL);
+//		label_spe2.setText("");
+////		label.setBounds(295, 84, 20, 64);
+//		label_spe2.setBounds(grp_src.getBounds().width+grp_src.getBounds().x,grp_src.getBounds().y, 8,grp_src.getBounds().y+grp_src.getBounds().height);
+//		
+//		Group grp_des = new Group(com_down, SWT.NONE);
+//		grp_des.setText("Destination Image Information");
+//		
+//		Label lblLabeldes = new Label(grp_des, SWT.NONE);
+//		lblLabeldes.setBounds(95, 87, 61, 17);
+//		lblLabeldes.setText("label_des");
+
+3.旧版的打开图像的shell
+//		//鼠标按下关闭
+//		shell.addMouseListener(new MouseAdapter() {
+//			public void mouseDown(MouseEvent e) {
+//				showingEnlargedImage  = false;//不显示大图
+//				shell.close();
+//			}			
+//		});
+//		//鼠标移出窗口就关闭
+//		shell.addListener(SWT.MouseExit, new Listener() {
+//			public void handleEvent(Event event) {
+//				showingEnlargedImage = false;
+//				shell.close();
+//			}
+//		});

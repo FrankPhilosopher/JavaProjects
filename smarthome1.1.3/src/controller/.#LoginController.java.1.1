@@ -1,0 +1,424 @@
+package controller;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import com.sun.glass.ui.Window;
+
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import tool.SystemTool;
+import util.AppliactionUtil;
+import util.AutoLoginUtil;
+import util.HttpUtil;
+import util.UiUtil;
+import app.SmartHome;
+import beans.User;
+
+import communication.CommunicationUtil;
+
+/**
+ * 登录控制器 <br/>
+ * 
+ * @author yinger
+ * 
+ */
+public class LoginController implements Initializable {
+
+	private double initX;
+	private double initY;
+	private Stage stage;// login stage''
+	
+	private boolean login = false;
+
+	private User user;
+	private AutoLoginUtil alu;
+	private CommunicationUtil communicateUtil;
+	private UiUtil uiUtil;
+
+	//从服务器返回的类型
+	private final int SERVER_ERROR = 4;  //用户名或密码错误
+	private final int SERVER_USERNOEXIST = 2;  //账户不存在
+	private final int SERVER_GATENOEXIST = 3;  //网关不在线
+	private final int SERVER_LOCK = 7;  //远程锁定
+	
+	
+	@FXML
+	private AnchorPane loginPane;// correspondent to fx:id
+	@FXML
+	private TextField tfName;
+	@FXML
+	private PasswordField tfPassword;
+	@FXML
+	private CheckBox cbRemeber;
+	@FXML
+	private CheckBox cbAutoLogin;
+	@FXML
+	private RadioButton rbGateway;
+	@FXML
+	private RadioButton rbServer;
+
+	@FXML
+	private AnchorPane loginWaitingPane;// loginWaitingPane show progress bar
+	@FXML
+	private AnchorPane loginViewPane;// login form
+
+	@FXML
+	private Label warningMessage;// show warning message
+	@FXML
+	private ImageView ivLogin;
+	@FXML
+	private ImageView ivCancle;
+
+	@FXML
+	private ImageView ivWinmin;
+	@FXML
+	private ImageView ivWinclose;
+	@FXML
+	private Button btnConfig;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		initEvents();
+		initValues();
+	}
+
+	/**
+	 * 初始化数据
+	 */
+	private void initValues() {
+		stage = SmartHome.getAppStage();
+		uiUtil = UiUtil.getInstance();
+		alu = AutoLoginUtil.getInstance();
+		communicateUtil = CommunicationUtil.getInstance();
+		warningMessage.setText("");// notice
+		// 加载系统配置信息,加载user信息
+		try {
+			SystemTool.getInstance().readSystemXml();
+			user = alu.readObject();
+		} catch (Exception e) {
+			uiUtil.showErrorMessage(warningMessage, e.getMessage());// 能够正确报错！
+		}
+		// 加载user信息
+//		try {
+//			user = alu.readObject();
+//		} catch (Exception e) {
+//			uiUtil.showErrorMessage(warningMessage, e.getMessage());
+//		}
+		if (user == null) {// 没有用户信息的话就进入登陆界面
+			user = new User();
+			gotoLoginView();
+		} else {
+			tfName.setText(user.getName());
+			if (user.getLoginType() == CommunicationUtil.GATEWAY_LOGIN) {// 设置连接模式--先
+				rbGateway.setSelected(true);
+			} else {
+				rbServer.setSelected(true);
+			}
+			if (user.getLogin() == AutoLoginUtil.RemPwd) {// 设置登陆模式
+				cbRemeber.setSelected(true);
+				tfPassword.setText(user.getPassword());
+				gotoLoginView();
+			} else if (user.getLogin() == AutoLoginUtil.AutoLogin) {
+				cbRemeber.setSelected(true);
+				cbAutoLogin.setSelected(true);
+				tfPassword.setText(user.getPassword());
+				gotoLoginWaiting();// 这种情况直接进入登陆等待，并且自动登陆
+				autoLogin();
+			} else {// 默认是要进入登陆界面
+				gotoLoginView();
+			}
+		}
+	}
+
+	/**
+	 * 事件处理
+	 */
+	private void initEvents() {
+		// when mouse button is pressed, save the initial position of screen
+		loginPane.setOnMousePressed(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				initX = me.getScreenX() - stage.getX();
+				initY = me.getScreenY() - stage.getY();
+				stage.toFront();
+			}
+		});
+
+		// when screen is dragged, translate it accordingly
+		loginPane.setOnMouseDragged(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				stage.setX(me.getScreenX() - initX);
+				stage.setY(me.getScreenY() - initY);
+			}
+		});
+
+		ivLogin.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				handleTryLogin();
+			}
+		});
+
+		ivCancle.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				cancleLogin();
+			}
+		});
+
+		btnConfig.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				handleConfigServer();
+			}
+		});
+
+		ivWinmin.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				stage.setIconified(true);
+			}
+		});
+
+		ivWinclose.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				
+				 //Platform.exit();
+				System.exit(0);// 这个貌似是可以保证与这个程序相关的线程都结束
+			}
+		});
+		
+		cbAutoLogin.selectedProperty().addListener(new ChangeListener<Boolean>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable,
+					Boolean oldValue, Boolean newValue) {
+				// TODO Auto-generated method stub
+				if(newValue){
+					cbRemeber.setSelected(true);
+				}
+			}
+
+			
+		});
+	}
+
+	/**
+	 * 登录界面
+	 */
+	private void gotoLoginView() {
+		loginWaitingPane.setVisible(false);
+		loginViewPane.setVisible(true);
+	}
+
+	/**
+	 * 登录等待
+	 */
+	private void gotoLoginWaiting() {
+		loginViewPane.setVisible(false);
+		loginWaitingPane.setVisible(true);
+	}
+
+	/**
+	 * 取消登陆
+	 */
+	private void cancleLogin() {
+		login = false;
+		communicateUtil.closeSocket();// 断开连接
+		gotoLoginView();
+	}
+
+	/**
+	 * 自动登录
+	 */
+	private void autoLogin() {
+		login = true;
+		warningMessage.setText("");// 将信息置空
+		gotoLoginWaiting();// 切换到登录等待界面
+		new LoginThread(user.getLoginType(), user.getLogin(), user.getName(), user.getPassword()).start();// 启动登录线程
+	}
+
+	/**
+	 * 尝试连接登录
+	 */
+	private void handleTryLogin() {
+		String name = tfName.getText().trim();
+		String password = tfPassword.getText().trim();
+		if ("".equalsIgnoreCase(name) || "".equalsIgnoreCase(password)) {
+			uiUtil.showErrorMessage(warningMessage, "账号和密码都不能为空！");
+			return;
+		}
+		login = true;
+		warningMessage.setText("");// 将信息置空
+		int mode = cbAutoLogin.isSelected() ? AutoLoginUtil.AutoLogin : (cbRemeber.isSelected() ? AutoLoginUtil.RemPwd
+				: AutoLoginUtil.NoLogin);
+		int type = rbGateway.isSelected() ? CommunicationUtil.GATEWAY_LOGIN : CommunicationUtil.SERVER_LOGIN;// 当前选择的登录方式
+		gotoLoginWaiting();// 切换到登录等待界面
+		new LoginThread(type, mode, name, password).start();// 启动登录线程
+	}
+
+	/**
+	 * 打开参数配置窗体
+	 */
+	private void handleConfigServer() {
+		uiUtil.openDialog("Config.fxml");
+	}
+
+	/**
+	 * 登录线程
+	 */
+	class LoginThread extends Thread {
+		private int type;
+		private int mode;
+		private String name;
+		private String pwd;
+
+		public LoginThread(int type, int mode, String name, String pwd) {
+			this.type = type;
+			this.mode = mode;
+			this.name = name;
+			this.pwd = pwd;
+		}
+
+		@Override
+		public void run() {
+			try {// 由通信工具 完成与网关的连接,远程访问时 自动先访问缓存ip，若失败再请求远程IP
+				changeMessage("正在建立连接......");
+				int result = communicateUtil.buildCommunication(type, name, pwd);
+				if(AppliactionUtil.DEBUG) System.out.println("登录result："+result);
+//下面的这个判断没必要用，因为尝试连接时密码和用户名都不为空时，就把login置为true了，login为false不会执行到这里，还因为验证在后
+//				if (!login) {
+//					return;
+//				}
+				if (result == 1) {
+					//网关超过最大连接数
+					if(communicateUtil.getLoginresult().toString().equals("网关超过最大连接数")){
+						if(AppliactionUtil.DEBUG) System.out.println("why");
+						communicateUtil.closeSocket();// 断开连接						
+						backToLoginView(communicateUtil.getLoginresult().toString());
+						communicateUtil.setLoginresult(new StringBuffer(""));
+						return;
+					}
+												
+					changeMessage("正在验证用户信息......");
+					if (communicateUtil.isLoginSuccess(name, pwd)) { // 登录成功!
+//						if (!login) {
+//							return;
+//						}
+						user.setName(name);
+						user.setPassword(pwd);
+						user.setLoginType(type);
+						user.setLogin(mode);
+						// user.setFirstRun(false);
+						SystemTool.CURRENT_USER = user;// 设置当前登录的用户
+//						if (!login) {
+//							return;
+//						}
+						// 它们不能放在线程中执行，因为有先后，只有下载完了文件才可以加载界面
+						// 保存用户信息
+						try {
+							changeMessage("正在保存用户信息......");
+							alu.writeObject(user);
+							if (user.isAutodownable()) {// 该用户是否自动下载
+								changeMessage("正在下载设备文件......");
+								HttpUtil.getInstance().downloadFiles();// 下载文件 这个文件下载没有放在单独的线程中，就是在这个登录线程中
+							}
+							changeMessage("正在加载设备状态信息......");
+							SystemTool.getInstance().initDeviceState();// 加载设备状态信息
+						} catch (Exception e) {
+							uiUtil.showErrorMessage(warningMessage, e.getMessage());
+						}
+						// 将一些比较复杂的事情放在这里进行！
+//						if (!login) {
+//							return;
+//						}
+//						try {
+//							if (user.isAutodownable()) {// 该用户是否自动下载
+//								changeMessage("正在下载设备文件......");
+//								HttpUtil.getInstance().downloadFiles();// 下载文件 这个文件下载没有放在单独的线程中，就是在这个登录线程中
+//							}
+//							changeMessage("正在加载设备状态信息......");
+//							SystemTool.getInstance().initDeviceState();// 加载设备状态信息
+//						} catch (Exception e) {
+//							uiUtil.showErrorMessage(warningMessage, e.getMessage());
+//						}
+//						if (!login) {
+//							return;
+//						}
+						Platform.runLater(new Runnable() {// 开始进入主界面
+							public void run() {
+								stage.hide();
+								stage.close();// 这一句还是加上比较好！为了避免显示的时候，登陆框还没有消失，主窗体就出现了的情况
+								//stage.getOnCloseRequest();
+								//stage.getOwner().hide();
+								//stage.getOwner().setOnCloseRequest(null);
+								SmartHome.getApplication().gotoMainPage();
+							}
+						});
+					} else {// 登陆成功 communicateUtil.isLoginSuccess(name, pwd) -- 登陆失败
+						if(AppliactionUtil.DEBUG) System.out.println("why");
+						communicateUtil.closeSocket();// 断开连接
+						backToLoginView(communicateUtil.getLoginresult().toString());
+					}
+					
+					
+				} else if(result == SERVER_ERROR){
+					communicateUtil.closeSocket();// 断开连接
+					backToLoginView("连接失败，用户名或密码错误！");
+				}else if(result == SERVER_USERNOEXIST){
+					communicateUtil.closeSocket();// 断开连接
+					backToLoginView("连接失败，账户不存在！");
+				}else if(result == SERVER_GATENOEXIST){
+					communicateUtil.closeSocket();// 断开连接
+					backToLoginView("连接失败，网关不在线！");
+				}else if(result == SERVER_LOCK){
+					communicateUtil.closeSocket();// 断开连接
+					backToLoginView("连接失败，远程访问锁定，请联系供应商解锁！");
+				}else
+				{// result ==1
+					communicateUtil.closeSocket();// 断开连接
+					backToLoginView("连接失败，请仔细检查参数配置和网络状态！");
+				}
+			} catch (Exception e) {
+				communicateUtil.closeSocket();// 断开连接
+				backToLoginView("连接存在异常，请重新登录！");
+			}
+		}
+	}
+
+	/**
+	 * 显示信息
+	 */
+	private void changeMessage(final String string) {
+		Platform.runLater(new Runnable() {// go to javafx application thread
+			public void run() {
+				warningMessage.setText(string);
+				warningMessage.setTextFill(Color.BLUE);
+			}
+		});
+	}
+
+	/**
+	 * 显示信息并回到登陆界面
+	 */
+	private void backToLoginView(final String string) {
+		Platform.runLater(new Runnable() {// go to javafx application thread
+			public void run() {
+				warningMessage.setText(string);
+				warningMessage.setTextFill(Color.RED);
+				gotoLoginView();
+			}
+		});
+	}
+}

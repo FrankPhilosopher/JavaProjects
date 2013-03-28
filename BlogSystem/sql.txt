@@ -1,0 +1,22 @@
+1.插入类别：
+INSERT INTO category(id,name,level) VALUES (1,"Java",1);
+INSERT INTO category(name,level) VALUES ("ACM",1);
+
+2.插入博客
+insert into blog(categoryid,title,content,created_time) values(1,"I love Java","I love Java! I love Java very much! ",NOW());
+
+3.查找博客类别
+SELECT * FROM category;
+
+4.插入博客
+insert into blog(categoryid,title,content,created_time) values(1,"I love Java","I love Java! I love Java very much! ",NOW());
+insert into blog(categoryid,title,content,created_time) values(1,"I love Acm","I love Acm! I love Acm very much! ",NOW());
+
+5.更新博客
+UPDATE blog set title='China is good',content='China is good!' WHERE id=2;
+
+6.查询博客
+SELECT b.id,b.title,b.content,b.created_time,c.id AS categoryid,c.name,c.level from blog b,category c WHERE b.categoryid=c.id;
+
+7.查询指定id博客
+SELECT b.id,b.title,b.content,b.created_time,b.categoryid from blog b where id=7

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource smarthome.properties?>
+
+<AnchorPane fx:id="configAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="400.0" styleClass="shell" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.ConfigController">
+  <children>
+    <Text fx:id="configTitleText" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" styleClass="shellTitle" text="%ConfigTitleText" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="6.0">
+      <font>
+        <Font name="System Bold" size="16.0" />
+      </font>
+    </Text>
+    <ImageView id="winmin" fx:id="ivWinmin" styleClass="winmin" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winmin.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <ImageView id="winclose" fx:id="ivWinclose" styleClass="winclose" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winclose.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <ImageView id="gateway" fitHeight="72.0" fitWidth="72.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="40.0">
+      <image>
+        <Image url="@gateway_72.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <Text id="text1" fx:id="gatewayConfig" fill="WHITE" scaleX="1.1118451733250427" scaleY="1.5573736143625878" text="%GatewayConfig" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="125.0">
+      <font>
+        <Font name="System Bold" size="14.0" fx:id="x1" />
+      </font>
+      <stroke>
+        <Color blue="1.000" green="0.496" red="0.400" fx:id="x3_x0" />
+      </stroke>
+    </Text>
+    <TextField fx:id="tfGatewayIP" prefWidth="148.0" promptText="%GatewayIP" AnchorPane.leftAnchor="215.0" AnchorPane.topAnchor="68.0" />
+    <TextField fx:id="tfGatewayPort" prefWidth="148.0" promptText="%GatewayPort" AnchorPane.leftAnchor="215.0" AnchorPane.topAnchor="97.0" />
+    <TextField fx:id="tfGatewayDownPort" prefHeight="21.0" prefWidth="148.0" promptText="%GatewayDownPort" AnchorPane.leftAnchor="216.0" AnchorPane.topAnchor="128.0" />
+    <ImageView fx:id="serverConfigImage" fitHeight="72.0" fitWidth="72.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="160.0">
+      <image>
+        <Image url="@server_72.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <Text fx:id="labelServerConfig" fill="WHITE" font="$x1" scaleX="1.1118451733250427" scaleY="1.5573736143625878" stroke="$x3_x0" text="%ServerConfig" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="240.0" />
+    <TextField fx:id="tfServerIP" prefWidth="144.0" promptText="%ServerIP" AnchorPane.leftAnchor="217.0" AnchorPane.topAnchor="181.0" />
+    <TextField fx:id="tfServerPort" prefWidth="144.0" promptText="%ServerPort" AnchorPane.leftAnchor="217.0" AnchorPane.topAnchor="211.0" />
+    <TextField fx:id="tfServerDownPort" prefWidth="144.0" promptText="%ServerDownPort" AnchorPane.leftAnchor="217.0" AnchorPane.topAnchor="241.0" />
+    <Button id="button1" fx:id="btnOk" defaultButton="true" font="$x1" prefHeight="24.0" prefWidth="66.0" styleClass="itembtn" text="%ButtonOk" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="140.0" />
+    <Button id="button2" fx:id="btnCancle" font="$x1" prefHeight="24.0" prefWidth="66.00012207" styleClass="canclebtn" text="%ButtonCancel" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="40.0" />
+    <Label layoutX="161.0" layoutY="70.0" text="%GatewayIP" />
+    <Label layoutX="161.0" layoutY="98.0" text="%GatewayPort" />
+    <Label layoutX="161.0" layoutY="131.0" text="%GatewayDownPort" />
+    <Label layoutX="161.0" layoutY="185.0" text="%GatewayIP" />
+    <Label layoutX="161.0" layoutY="215.0" text="%GatewayPort" />
+    <Label layoutX="161.0" layoutY="245.0" text="%GatewayDownPort" />
+  </children>
+  <stylesheets>
+    <URL value="@smarthome.css" />
+  </stylesheets>
+</AnchorPane>

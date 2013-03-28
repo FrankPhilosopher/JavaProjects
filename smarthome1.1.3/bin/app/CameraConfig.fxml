@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource smarthome.properties?>
+
+<AnchorPane id="configAnchorPane" fx:id="cameraPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="600.0" styleClass="shell" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.CameraConfigController">
+  <children>
+    <ImageView id="ipcamera" fitHeight="128.0" fitWidth="128.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="80.0">
+      <effect>
+        <Reflection fraction="1.0" />
+      </effect>
+      <image>
+        <Image url="@ipcamera.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <Button id="btnSave" fx:id="btnOk" alignment="CENTER" defaultButton="true" prefHeight="24.0" prefWidth="75.0" styleClass="itembtn" text="%ButtonOk" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="140.0">
+      <font>
+        <Font name="System Bold" size="12.0" fx:id="x1" />
+      </font>
+    </Button>
+    <Button fx:id="btnCancle" alignment="CENTER" font="$x1" prefHeight="24.0" prefWidth="81.0" styleClass="canclebtn" text="%ButtonCancel" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+    <GridPane id="gridPane2" maxHeight="350.0" maxWidth="400.0" minHeight="350.0" minWidth="400.0" prefHeight="350.0" prefWidth="400.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="30.0">
+      <children>
+        <!--
+                <Text id="text1" fx:id="gridPaneTitle" fill="#009918" scaleX="1.1118451733250427" scaleY="1.5573736143625878" stroke="TRANSPARENT" strokeWidth="0.0" text="%CameraConfig" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                  <effect>
+                    <Reflection fraction="0.6" />
+                  </effect>
+                  <font>
+                    <Font name="System Bold" size="14.0" fx:id="x1" />
+                  </font>
+                  <GridPane.margin>
+                    <Insets top="10.0" />
+                  </GridPane.margin>
+                </Text>
+                -->
+        <Label styleClass="smartLabel" text="%CameraName" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+        <Label styleClass="smartLabel" text="%CameraIP" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+        <Label styleClass="smartLabel" text="%CameraPort" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+        <Label styleClass="smartLabel" text="%UserName" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+        <Label styleClass="smartLabel" text="%Password" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+        <Label alignment="CENTER" styleClass="smartLabel" text="视频系列" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+        <Label styleClass="smartLabel" text="%Resolution" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+        <TextField fx:id="tfName" maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+          <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+          </GridPane.margin>
+        </TextField>
+        <TextField fx:id="tfIP" maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+          <GridPane.margin>
+            <Insets bottom="8.0" left="10.0" right="20.0" top="8.0" fx:id="x4" />
+          </GridPane.margin>
+        </TextField>
+        <TextField fx:id="tfPort" maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.margin="$x4" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+        <TextField id="" fx:id="tfUserName" maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.margin="$x4" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+        <PasswordField fx:id="pfPassword" maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+          <GridPane.margin>
+            <Insets bottom="8.0" left="10.0" right="20.0" top="8.0" fx:id="x4" />
+          </GridPane.margin>
+        </PasswordField>
+        <RadioButton fx:id="rbA" mnemonicParsing="false" styleClass="smartLabel" text="A 系 列" GridPane.columnIndex="1" GridPane.rowIndex="6">
+          <toggleGroup>
+            <ToggleGroup fx:id="typeGroup" />
+          </toggleGroup>
+          <GridPane.margin>
+            <Insets left="10.0" fx:id="x5" />
+          </GridPane.margin>
+        </RadioButton>
+        <RadioButton fx:id="rbB" mnemonicParsing="false" styleClass="smartLabel" text="B 系 列" toggleGroup="$typeGroup" GridPane.columnIndex="1" GridPane.rowIndex="6">
+          <GridPane.margin>
+            <Insets left="100.0" />
+          </GridPane.margin>
+        </RadioButton>
+        <RadioButton id="radioButton1" fx:id="rbSmall" text="160*120" textFill="#009918" GridPane.columnIndex="1" GridPane.rowIndex="7">
+          <font>
+            <Font name="System Bold" size="14.0" fx:id="x2" />
+          </font>
+          <toggleGroup>
+            <ToggleGroup fx:id="resolutionGroup" />
+          </toggleGroup>
+          <GridPane.margin>
+            <Insets left="10.0" fx:id="x5" />
+          </GridPane.margin>
+        </RadioButton>
+        <RadioButton id="radioButton1" fx:id="rbMiddle" font="$x2" selected="true" text="320*240" toggleGroup="$resolutionGroup" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+          <textFill>
+            <Color blue="0.096" green="0.600" red="0.000" fx:id="x3" />
+          </textFill>
+          <GridPane.margin>
+            <Insets left="94.0" />
+          </GridPane.margin>
+        </RadioButton>
+        <RadioButton id="radioButton1" fx:id="rbBig" font="$x2" text="640*480" textFill="$x3" toggleGroup="$resolutionGroup" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+          <GridPane.margin>
+            <Insets left="176.0" />
+          </GridPane.margin>
+        </RadioButton>
+        <Label id="label1" fx:id="lblMessage" font="$x1" maxHeight="20.0" maxWidth="300.0" minHeight="20.0" minWidth="300.0" prefHeight="20.0" prefWidth="300.0" styleClass="smartLabel" text="%Message" textFill="RED" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+          <GridPane.margin>
+            <Insets left="20.0" right="20.0" />
+          </GridPane.margin>
+        </Label>
+        <Label fx:id="lblName" prefWidth="258.0" styleClass="smartLabel" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.margin="$x5" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+        <Label styleClass="smartLabel" text="是否翻转" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+        <CheckBox fx:id="cbFlip" mnemonicParsing="false" styleClass="smartLabel" text="翻  转" GridPane.columnIndex="1" GridPane.rowIndex="5">
+          <GridPane.margin>
+            <Insets left="10.0" fx:id="x5" />
+          </GridPane.margin>
+        </CheckBox>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="112.0" prefWidth="112.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="288.0" minWidth="260.0" prefWidth="288.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <Text fx:id="shellTitle" stroke="BLACK" styleClass="shellTitle" text="%CameraConfig" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="6.0" />
+    <ImageView id="winmin" fx:id="ivWinmin" styleClass="winmin" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winmin.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <ImageView id="winclose" fx:id="ivWinclose" styleClass="winclose" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winclose.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+  </children>
+  <stylesheets>
+    <URL value="@smarthome.css" />
+  </stylesheets>
+</AnchorPane>

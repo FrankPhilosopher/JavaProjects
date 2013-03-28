@@ -1,0 +1,22 @@
+
+.selectbar_button_div{
+	margin-left:60px;	
+	
+}
+
+.search_table_row{
+	margin-left:60px;
+	text-align:left;	
+	vertical-align:middle;
+}
+
+.table_op_a:hover{
+	color:blue;
+	text-decoration:none;
+	cursor:pointer;
+}
+
+.table_op_a:click{
+	color:red;
+	text-decoration:none;
+}

@@ -1,0 +1,5 @@
+1.使用3d效果的js，注意，貌似这个object在原有宽度上增加了20px，分别增加在左右方向上。
+最终的解决方案：object的父容器的width在原有的基础上增加20px，然后使其位置为relative，并向左移动20px。
+<script src="js/3dheader.js" type="text/javascript"></script>
+
+2.img文件夹存放的是portfolio页面content内容中的tabfolder的三个tab图片

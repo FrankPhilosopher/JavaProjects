@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+	<title>订单管理-客户-物流管理系统</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<style media="all" type="text/css">
+@import "../style/all.css";
+</style>
+	<style media="all" type="text/css">
+@import "../style/excel.css";
+</style>
+	<script type="text/javascript">
+		function deleteOrder(){
+			if(confirm("您确定要删除该车辆信息吗？")){
+				alert("是的");
+			}
+		}
+	</script>
+	</head>
+	<body style="background: none">
+<div class="top-bar">
+      <h1>未审核订单<br /></h1>
+      <div class="breadcrumbs"> <a href="index.html" target="_top">首页</a> / <a href="orderManager.html" target="_top">订单管理</a> </div>
+    </div>
+
+<div class="table"> <img src="../style/img/bg-th-left.gif" width="8" height="7" alt="" class="left" /> <img src="../style/img/bg-th-right.gif" width="7" height="7" alt="" class="right" />
+      <table class="listing form" cellpadding="0" cellspacing="0">
+    <tr>
+          <th class="first">订单号码</th>
+          <th class="first">寄件人姓名</th>
+          <th>寄件人地址</th>
+          <th>订单重量</th>
+          <th>订单体积</th>
+          <th>订单状态</th>
+          <th class="last">操作</th>
+        </tr>
+        
+   
+    <tr>
+          <td>SJ006000006</td>
+          <td>张三</td>
+          <td>长沙岳麓区</td>
+          <td>2</td>
+          <td>2</td>
+          <td>未审核</td>          
+          <td><a href="order_check.html" class="table_op_a"><img src="../style/img/edit-icon.gif"  width="16" height="16" alt="" />审核</a><a class="table_op_a" onclick="deleteOrder();"> <img src="../style/img/hr.gif" width="16" height="16" alt="" />删除</a> </td>
+        </tr>
+        <tr>
+          <td>SJ006000011</td>
+          <td>李四</td>
+          <td>长沙岳麓区</td>
+          <td>2</td>
+          <td>2</td>
+          <td>未审核</td>          
+          <td><a href="order_check.html" class="table_op_a"><img src="../style/img/edit-icon.gif"  width="16" height="16" alt="" />审核</a><a class="table_op_a" onclick="deleteOrder();"> <img src="../style/img/hr.gif" width="16" height="16" alt="" />删除</a> </td>
+        </tr>
+        <tr>
+          <td>SJ006000032</td>
+          <td>王五</td>
+          <td>长沙岳麓区</td>
+          <td>2</td>
+          <td>2</td>
+          <td>未审核</td>          
+          <td><a href="order_check.html" class="table_op_a"><img src="../style/img/edit-icon.gif"  width="16" height="16" alt="" />审核</a><a class="table_op_a" onclick="deleteOrder();"> <img src="../style/img/hr.gif" width="16" height="16" alt="" />删除</a> </td>
+        </tr>
+    <tr>
+          <td>SJ006000037</td>
+          <td>马俊</td>
+          <td>长沙岳麓区</td>
+          <td>2</td>
+          <td>2</td>
+          <td>未审核</td>          
+          <td><a href="order_check.html" class="table_op_a"><img src="../style/img/edit-icon.gif"  width="16" height="16" alt="" />审核</a><a class="table_op_a" onclick="deleteOrder();"> <img src="../style/img/hr.gif" width="16" height="16" alt="" />删除</a> </td>
+        </tr>
+  </table>
+      <div class="pager"> 共 59 条记录 每页
+    <input type="text" class="text" size="2" value="10"/>
+    条
+    第1页/共5页 <a href="#">第一页</a> <a href="#">上一页</a> <a href="#">下一页</a> <a href="#">最后一页</a> 转到
+    <input type="text" class="text" size="1" value="1"/>
+    页
+    <input type="button" class="button" onclick="" value="GO"/>
+  </div>
+    </div>
+</body>
+</html>

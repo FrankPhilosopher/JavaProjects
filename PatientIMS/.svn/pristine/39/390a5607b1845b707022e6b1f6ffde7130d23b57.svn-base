@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+	<page alt-style="css/root-swt.properties" style="css/root.css" id="root"
+		style-id="page">
+		<title style-id="intro-header">Welcom to Patient Information Management System
+		</title>
+		<group id="links-background">
+			<group id="page-links">
+				<link label="Eclipse Web Site" url="http://www.eclipse.org" id="website"
+					style-id="left">
+					<text></text>
+				</link>
+			</group>
+		</group>
+	</page>
+</introContent>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<lightbuttons>
+	<lightbutton id="2">
+		<name>大厅灯控</name>
+		<hasi>1</hasi>
+		<buttonup>131586</buttonup>
+		<buttondown>131587</buttondown>
+		<buttonon>131588</buttonon>
+		<buttonoff>131589</buttonoff>
+	</lightbutton>
+	<lightbutton id="3">
+		<name>卧室灯控</name>
+		<hasi>1</hasi>
+		<buttonup>131842</buttonup>
+		<buttondown>131843</buttondown>
+		<buttonon>131844</buttonon>
+		<buttonoff>131845</buttonoff>
+	</lightbutton>
+	<lightbutton id="4">
+		<name>书房灯控</name>
+		<hasi>1</hasi>
+		<buttonup>132098</buttonup>
+		<buttondown>132099</buttondown>
+		<buttonon>132100</buttonon>
+		<buttonoff>132101</buttonoff>
+	</lightbutton>
+</lightbuttons>

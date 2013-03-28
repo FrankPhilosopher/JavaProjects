@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<!-- HJW 本机SQL Server -->
+		<!-- <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property> 
+			<property name="url" value="jdbc:sqlserver://124.232.147.214:9999;databaseName=Gpserver"> 
+			</property> <property name="username" value="sa"></property> <property name="password" 
+			value="yinger"></property> -->
+		<!-- 远程SQL Server -->
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
+		<property name="url"
+			value="jdbc:sqlserver://124.232.147.214:9999;databaseName=ITGpserver">
+		</property>
+		<property name="username" value="ztdz"></property>
+		<property name="password" value="123456"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+				<!-- 自动提交事务 -->
+				<prop key="hibernate.connection.autocommit">true</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+
+		<property name="annotatedClasses">
+			<list>
+				<value>com.ztdz.pojo.TCarInfo</value>
+				<value>com.ztdz.pojo.TTempPosition</value>
+				<value>com.ztdz.pojo.TTerminal</value>
+				<value>com.ztdz.pojo.TLog</value>
+				<value>com.ztdz.pojo.TArea</value>
+				<value>com.ztdz.pojo.TOrgainzation</value>
+				<value>com.ztdz.pojo.TFence</value>
+				<value>com.ztdz.pojo.TAccount</value>
+				<value>com.ztdz.pojo.TTempLatlng</value>
+				<value>com.ztdz.pojo.TUser</value>
+				<value>com.ztdz.pojo.TPosition</value>
+				<value>com.ztdz.pojo.TRequest</value>
+				<value>com.ztdz.pojo.TResponse</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 配置事务管理器 -->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="back*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="allServiceMethod" expression="execution(* com.ztdz.actions.*.*(..))" />
+		<aop:advisor pointcut-ref="allServiceMethod" advice-ref="txAdvice" />
+	</aop:config>
+
+</beans>

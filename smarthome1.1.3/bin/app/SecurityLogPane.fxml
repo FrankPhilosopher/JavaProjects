@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource smarthome.properties?>
+
+<AnchorPane fx:id="configPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="600.0" styleClass="shell" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.SecurityLogController">
+  <children>
+    <Text stroke="BLACK" styleClass="shellTitle" text="%LogTitleText" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="6.0" />
+    <ImageView id="winmin" fx:id="ivWinmin" styleClass="winmin" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winmin.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <ImageView id="winclose" fx:id="ivWinclose" styleClass="winclose" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winclose.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <TableView fx:id="logTable" layoutX="5.0" maxWidth="590.0" minWidth="590.0" prefHeight="388.0" prefWidth="590.0" AnchorPane.topAnchor="35.0">
+      <columns>
+        <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="报警日期" fx:id="colLogDate" />
+        <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="报警设备" fx:id="colLogDevice" />
+        <TableColumn maxWidth="340.0" minWidth="338.0" prefWidth="338.0" text="报警信息" fx:id="colLogMessage" />
+      </columns>
+    </TableView>
+  </children>
+  <stylesheets>
+    <URL value="@smarthome.css" />
+  </stylesheets>
+</AnchorPane>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource smarthome.properties?>
+
+<AnchorPane id="configAnchorPane" fx:id="sceneConfigPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="600.0" styleClass="shell" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.SceneConfigController">
+  <children>
+    <Text fx:id="configTitle" stroke="BLACK" styleClass="shellTitle" text="%SceneConfigTitleText" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="6.0" />
+    <ImageView id="winmin" fx:id="ivWinmin" styleClass="winmin" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winmin.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <ImageView id="winclose" fx:id="ivWinclose" styleClass="winclose" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winclose.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="40.0">
+      <children>
+        <Label styleClass="smartLabel" text="%SceneName">
+          <HBox.margin>
+            <Insets left="10.0" fx:id="x2" />
+          </HBox.margin>
+        </Label>
+        <StackPane prefHeight="40.0" prefWidth="120.0">
+          <children>
+            <Label fx:id="lblName" prefWidth="100.0" styleClass="smartLabel" />
+            <TextField fx:id="tfName" prefWidth="100.0" />
+          </children>
+          <HBox.margin>
+            <Insets left="10.0" fx:id="x2" />
+          </HBox.margin>
+        </StackPane>
+        <Label id="label1" fx:id="lblMessage" minHeight="20.0" minWidth="100.0" prefHeight="20.0" prefWidth="280.0" styleClass="smartLabel" text="%Message" textFill="RED" HBox.margin="$x2">
+          <font>
+            <Font name="System Bold" size="12.0" fx:id="x1" />
+          </font>
+        </Label>
+      </children>
+    </HBox>
+    <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+      <children>
+        <Button id="btnSave" fx:id="btnOk" alignment="CENTER" defaultButton="true" font="$x1" prefHeight="24.0" prefWidth="75.0" styleClass="itembtn" text="%ButtonOk">
+          <HBox.margin>
+            <Insets left="10.0" fx:id="x2" />
+          </HBox.margin>
+        </Button>
+        <Button fx:id="btnCancle" alignment="CENTER" font="$x1" prefHeight="24.0" prefWidth="81.0" styleClass="canclebtn" text="%ButtonCancel">
+          <HBox.margin>
+            <Insets left="20.0" right="20.0" />
+          </HBox.margin>
+        </Button>
+      </children>
+    </HBox>
+    <StackPane id="StackPane" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="80.0">
+      <children>
+        <Accordion id="accordion1" blendMode="MULTIPLY" maxHeight="360.0" maxWidth="600.0" minHeight="360.0" minWidth="600.0" prefHeight="360.0" prefWidth="600.0">
+          <expandedPane>
+            <TitledPane id="titledPane1" fx:id="lightTitledPane" text="%LightTitledPane">
+              <content>
+                <StackPane alignment="TOP_LEFT" prefHeight="250.0" prefWidth="600.0">
+                  <children>
+                    <HBox alignment="CENTER_LEFT" maxHeight="50.0" prefHeight="50.0" prefWidth="596.0" spacing="20.0" StackPane.alignment="TOP_CENTER">
+                      <children>
+                        <Button id="btnAllOpen" fx:id="btnAllOpen_light" mnemonicParsing="false" styleClass="itembtn" text="%AllOpen">
+                          <HBox.margin>
+                            <Insets left="10.0" fx:id="x2" />
+                          </HBox.margin>
+                        </Button>
+                        <Button id="btnAllClose" fx:id="btnAllClose_light" mnemonicParsing="false" styleClass="itembtn" text="%AllClose" />
+                        <Button fx:id="btnAllRemain_light" mnemonicParsing="false" styleClass="itembtn" text="%AllRemain" />
+                      </children>
+                      <StackPane.margin>
+                        <Insets />
+                      </StackPane.margin>
+                    </HBox>
+                    <ScrollPane prefHeight="200.0" prefWidth="600.0" StackPane.alignment="CENTER">
+                      <content>
+                        <TilePane id="tilePane1" fx:id="lightTilePane" prefHeight="200.0" prefWidth="590.0" />
+                      </content>
+                      <StackPane.margin>
+                        <Insets top="50.0" fx:id="x3" />
+                      </StackPane.margin>
+                    </ScrollPane>
+                  </children>
+                </StackPane>
+              </content>
+            </TitledPane>
+          </expandedPane>
+          <panes>
+            <fx:reference source="lightTitledPane" />
+            <TitledPane id="titledPane1" fx:id="doorTitledPane" text="%DoorTitledPane">
+              <content>
+                <StackPane id="stackPane2" alignment="TOP_LEFT" prefHeight="250.0" prefWidth="600.0">
+                  <children>
+                    <HBox alignment="CENTER_LEFT" maxHeight="50.0" prefHeight="50.0" prefWidth="596.0" spacing="20.0">
+                      <children>
+                        <Button id="btnAllOpen" fx:id="btnAllOpen_door" mnemonicParsing="false" styleClass="itembtn" text="%AllOpen">
+                          <HBox.margin>
+                            <Insets left="10.0" fx:id="x2" />
+                          </HBox.margin>
+                        </Button>
+                        <Button id="btnAllClose" fx:id="btnAllClose_door" mnemonicParsing="false" styleClass="itembtn" text="%AllClose" />
+                        <Button id="btnAllRemain_light" fx:id="btnAllRemain_door" mnemonicParsing="false" styleClass="itembtn" text="%AllRemain" />
+                      </children>
+                    </HBox>
+                    <ScrollPane id="scrollPane1" prefHeight="200.0" prefWidth="600.0" StackPane.alignment="CENTER" StackPane.margin="$x3">
+                      <content>
+                        <TilePane id="tilePane1" fx:id="doorTilePane" prefHeight="200.0" prefWidth="590.0" />
+                      </content>                    
+                    </ScrollPane>
+                  </children>
+                </StackPane>
+              </content>
+            </TitledPane>
+            <TitledPane id="titledPane1" fx:id="securityTitledPane" text="%SecurityTitledPane">
+              <content>
+                <StackPane id="stackPane2" alignment="TOP_LEFT" prefHeight="250.0" prefWidth="600.0">
+                  <children>
+                    <HBox alignment="CENTER_LEFT" maxHeight="50.0" prefHeight="50.0" prefWidth="596.0" spacing="20.0">
+                      <children>
+                        <Button id="btnAllOpen" fx:id="btnAllOpen_security" mnemonicParsing="false" styleClass="itembtn" text="%AllOpen">
+                          <HBox.margin>
+                            <Insets left="10.0" fx:id="x2" />
+                          </HBox.margin>
+                        </Button>
+                        <Button id="btnAllClose" fx:id="btnAllClose_security" mnemonicParsing="false" styleClass="itembtn" text="%AllClose" />
+                        <Button id="btnAllRemain_light" fx:id="btnAllRemain_security" mnemonicParsing="false" styleClass="itembtn" text="%AllRemain" />
+                      </children>
+                    </HBox>
+                    <ScrollPane id="scrollPane1" prefHeight="200.0" prefWidth="600.0" StackPane.alignment="CENTER" StackPane.margin="$x3">
+                      <content>
+                        <TilePane id="tilePane1" fx:id="securityTilePane" prefHeight="200.0" prefWidth="590.0" />
+                      </content>
+                    </ScrollPane>
+                  </children>
+                </StackPane>
+              </content>
+            </TitledPane>
+            <TitledPane id="titledPane1" fx:id="applianceTitledPane" text="%ApplianceTitledPane">
+              <content>
+                <StackPane id="stackPane2" alignment="TOP_LEFT" prefHeight="250.0" prefWidth="600.0">
+                  <children>
+                    <HBox alignment="CENTER_LEFT" maxHeight="50.0" prefHeight="50.0" prefWidth="596.0" spacing="20.0">
+                      <children>
+                        <Button id="btnAllOpen" fx:id="btnAllOpen_appliance" mnemonicParsing="false" styleClass="itembtn" text="%AllOpen">
+                          <HBox.margin>
+                            <Insets left="10.0" fx:id="x2" />
+                          </HBox.margin>
+                        </Button>
+                        <Button id="btnAllClose" fx:id="btnAllClose_appliance" mnemonicParsing="false" styleClass="itembtn" text="%AllClose" />
+                        <Button id="btnAllRemain_light" fx:id="btnAllRemain_appliance" mnemonicParsing="false" styleClass="itembtn" text="%AllRemain" />
+                      </children>
+                    </HBox>
+                    <ScrollPane id="scrollPane1" prefHeight="200.0" prefWidth="600.0" StackPane.alignment="CENTER" StackPane.margin="$x3">
+                      <content>
+                        <TilePane id="tilePane1" fx:id="applianceTilePane" prefHeight="200.0" prefWidth="590.0" />
+                      </content>
+                    </ScrollPane>
+                  </children>
+                </StackPane>
+              </content>
+            </TitledPane>
+          </panes>
+        </Accordion>
+      </children>
+    </StackPane>
+  </children>
+  <stylesheets>
+    <URL value="@smarthome.css" />
+  </stylesheets>
+</AnchorPane>

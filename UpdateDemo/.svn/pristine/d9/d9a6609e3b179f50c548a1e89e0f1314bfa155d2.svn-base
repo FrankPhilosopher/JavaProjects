@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: UpdateDemo
+Bundle-SymbolicName: updatedemo; singleton:=true
+Bundle-Version: 1.0.2
+Bundle-Activator: updatedemo.Activator
+Bundle-Vendor: yinger
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.update.ui;bundle-version="3.2.300"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

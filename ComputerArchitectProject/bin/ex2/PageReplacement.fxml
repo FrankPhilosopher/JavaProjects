@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ex2.PageReplacementController">
+  <children>
+    <StackPane id="stackPane1" prefHeight="600.0" prefWidth="800.0" />
+    <ImageView id="apple" fitHeight="600.0" fitWidth="800.0">
+      <effect>
+        <InnerShadow />
+      </effect>
+      <image>
+        <Image url="@apple.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <Rectangle id="rectangle1" arcHeight="10.0" arcWidth="10.0" fill="#bce9e982" height="175.0" layoutX="14.0" layoutY="20.0" stroke="TRANSPARENT" strokeType="INSIDE" width="772.0" />
+    <RadioButton id="radioButton1" fx:id="rbHand" layoutX="37.0" layoutY="30.0" onAction="#handleHand" selected="true" text="%Hand">
+      <toggleGroup>
+        <ToggleGroup fx:id="datamethod" />
+      </toggleGroup>
+    </RadioButton>
+    <RadioButton id="radioButton2" fx:id="fbFile" layoutX="164.0" layoutY="30.0" onAction="#handleFile" text="%FromFile" toggleGroup="$datamethod" />
+    <Label id="label1" fx:id="labelPageFrames" layoutX="37.0" layoutY="63.0" text="%labelPageFrames" />
+    <TextField id="textField1" fx:id="tfPageFrames" layoutX="172.0" layoutY="60.0" prefHeight="21.0" prefWidth="68.0" />
+    <Label id="label2" fx:id="labelReferenceString" layoutX="37.0" layoutY="99.0" text="%labelReferenceString" />
+    <Label id="label4" fx:id="labelMessage" layoutX="296.0" layoutY="63.0" text="%labelMessage" textFill="RED">
+      <font>
+        <Font name="System Bold" size="12.0" />
+      </font>
+    </Label>
+    <TextField id="textField2" fx:id="tfReferenceString" layoutX="172.0" layoutY="96.0" prefHeight="21.0" prefWidth="493.0"/>
+    <Label id="label3" fx:id="labelChooseAlgorithm" layoutX="37.0" layoutY="132.0" text="%labelChooseAlgorithm" />
+    <RadioButton id="radioButton5" fx:id="rbOpt" layoutX="309.0" layoutY="132.0" onAction="#handleOpt" text="%OPT">
+      <toggleGroup>
+        <ToggleGroup fx:id="chooseAlgorithm" />
+      </toggleGroup>
+    </RadioButton>
+    <RadioButton id="radioButton3" fx:id="rbFifo" layoutX="172.0" layoutY="132.0" onAction="#handleFifo" text="%FIFO" toggleGroup="$chooseAlgorithm" />
+    <RadioButton id="radioButton4" fx:id="rbLru" layoutX="240.0" layoutY="132.0" onAction="#handleLru" selected="true" text="%LRU" toggleGroup="$chooseAlgorithm" />
+    <Button id="button1" fx:id="btnInit" defaultButton="true" layoutX="37.0" layoutY="166.0" onAction="#handleInit" prefHeight="20.0" prefWidth="54.0" text="%Init" />
+    <Button id="button2" fx:id="btnStep" layoutX="124.0" layoutY="166.0" onAction="#handleStep" prefHeight="20.0" prefWidth="49.0" style="-fx-base:GREEN;" text="%Step" />
+    <Rectangle id="rectangle2" arcHeight="10.0" arcWidth="10.0" fill="#e6e7e967" height="386.0" layoutX="14.0" layoutY="200.0" stroke="TRANSPARENT" strokeType="INSIDE" width="772.0" />
+    <GridPane id="gridPane1" fx:id="rsGridPane" alignment="CENTER" layoutX="42.0" layoutY="210.0" prefHeight="50.0" prefWidth="720.0">
+      <columnConstraints>
+        <ColumnConstraints hgrow="NEVER" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints vgrow="NEVER" />
+      </rowConstraints>
+    </GridPane>
+    <GridPane id="gridPane2" fx:id="replaceGridPane" alignment="TOP_CENTER" layoutX="42.0" layoutY="280.0" maxHeight="300.0" maxWidth="720.0" minHeight="300.0" minWidth="720.0" prefHeight="300.0" prefWidth="720.0">
+      <columnConstraints>
+        <ColumnConstraints hgrow="NEVER" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints vgrow="NEVER" />
+      </rowConstraints>
+    </GridPane>
+    <Button id="button3" fx:id="btnStart" layoutX="206.0" layoutY="166.0" onAction="#handleStart" prefHeight="20.0" prefWidth="49.0" style="-fx-base:orange;" text="%Start" />
+  </children>
+</AnchorPane>

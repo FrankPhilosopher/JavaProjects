@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="mydip.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="DIP Perspective"
+            class="mydip.Perspective"
+            id="mydip.Perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="mydip.views.NavigatorView"
+            id="mydip.views.NavigatorView"
+            name="NavigatorView"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="mydip.editors.ImageEditor"
+            default="false"
+            id="mydip.editors.ImageEditor"
+            name="ImageEditor">
+      </editor>
+   </extension> 
+
+</plugin>

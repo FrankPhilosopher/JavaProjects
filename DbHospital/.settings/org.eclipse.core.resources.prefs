@@ -1,0 +1,10 @@
+#Tue Jan 15 19:54:38 CST 2013
+eclipse.preferences.version=1
+encoding//src/cn/edu/csu/dbhospital/db=UTF-8
+encoding//src/cn/edu/csu/dbhospital/db/DataBaseTool.java=UTF-8
+encoding//src/cn/edu/csu/dbhospital/db/TArrangementManager.java=UTF-8
+encoding//src/cn/edu/csu/dbhospital/db/TDirectoryManager.java=UTF-8
+encoding//src/cn/edu/csu/dbhospital/db/TDoctorManager.java=UTF-8
+encoding//src/cn/edu/csu/dbhospital/db/TRoomManager.java=UTF-8
+encoding//src/cn/edu/csu/dbhospital/db/TUserManager.java=UTF-8
+encoding//src/cn/edu/csu/dbhospital/db/TWorkerManager.java=UTF-8

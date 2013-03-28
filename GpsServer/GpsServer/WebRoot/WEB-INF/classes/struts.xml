@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<package name="platform-default" namespace="/" extends="struts-default">
+		<action name="*_*" class="{1}Action" method="{2}">
+			<result name="login">
+				/login.jsp
+            </result>
+			<result name="success">
+				/mypages/{1}_{2}.jsp
+            </result>
+			<result name="target">
+				/mypages/${page}.jsp
+            </result>
+			<result name="redirect" type="redirect">
+				${redActionName}
+            </result>
+			<result name="excel" type="stream">
+				<param name="contentType">
+					application/vnd.ms-excel
+                </param>
+				<param name="inputName">
+					excelStream
+                </param>
+				<param name="contentDisposition">
+					filename="export.xls"
+                </param>
+				<param name="bufferSize">
+					1024
+                </param>
+			</result>
+		</action>
+	</package>
+
+	<package name="ajaxAction" namespace="/" extends="json-default">
+		<action name="privilege" class="PriorityAction" method="setPrivilege">
+			<result type="json" />
+		</action>
+		<action name="warnphone" class="PriorityAction" method="setWarnPhone">
+			<result type="json" />
+		</action>
+		<action name="period" class="PriorityAction" method="setPeriod">
+			<result type="json" />
+		</action>
+		<action name="stopoil" class="PriorityAction" method="setStopOil">
+			<result type="json" />
+		</action>
+		<action name="recoveroil" class="PriorityAction" method="setRecoverOil">
+			<result type="json" />
+		</action>
+		<action name="checkResult" class="PriorityAction" method="checkResult">
+			<result type="json" />
+		</action>
+		<action name="lockResult" class="PriorityAction" method="lockResult">
+			<result type="json" />
+		</action>
+		<action name="unlockResult" class="PriorityAction" method="unlockResult">
+			<result type="json" />
+		</action>
+		<action name="getAddress" class="AddressAction" method="getDetailAddress">
+			<result type="json" />
+		</action>
+		<action name="position" class="PositionAction" method="getPosition">
+			<result type="json" />
+		</action>
+	</package>
+	<package name="Ajax" namespace="/" extends="json-default">
+		<action name="AreaAjax" class="AreaAjaxAction" method="getCitiesByProvince">
+			<result type="json">
+				<param name="includeProperties">cities\[\d+\]\.areaId,cities\[\d+\]\.name,cities\[\d+\]\.TArea\.areaId,cities\[\d+\]\.TArea\.name</param>
+			</result>
+		</action>
+		<action name="ChangeGroupAjaxAction" class="ChangeGroupAjaxAction"
+			method="getGroupsByJituanId">
+			<result type="json">
+				<param name="includeProperties">groups\[\d+\]\.orgId,groups\[\d+\]\.name</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

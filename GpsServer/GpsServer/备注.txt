@@ -1,0 +1,16 @@
+1.项目的编码格式是GBK，文件的编码格式也是GBK
+2.JSP页面统一pageEncoding="GBK"
+JSP前面的内容：
+<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+head中meta内容：
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+3.资源管理
+图片和css/js文件统一放在webroot的images和css/js文件夹下
+
+4.登录用户放在session中，名称为user
+

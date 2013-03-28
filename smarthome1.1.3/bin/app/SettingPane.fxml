@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+<?scenebuilder-preview-i18n-resource smarthome.properties?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="998.0" styleClass="pane" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.SettingPaneController">
+  <children>
+    <AnchorPane fx:id="topPane" layoutX="4.0" layoutY="10.0" minHeight="40.0" prefHeight="40.0" prefWidth="961.0">
+      <children>
+        <Text fx:id="pageTitle" stroke="#3354ff" strokeLineCap="ROUND" strokeLineJoin="ROUND" styleClass="paneTitle" text="%SystemSetting" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="10.0" />
+        <Label fx:id="lblMessage" prefWidth="256.0" styleClass="smartLabel" AnchorPane.leftAnchor="353.0" AnchorPane.topAnchor="12.0" />
+      </children>
+    </AnchorPane>
+    <AnchorPane fx:id="centerPane" prefHeight="420.0" prefWidth="980.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="65.0">
+      <children>
+        <AnchorPane prefHeight="400.0" prefWidth="300.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="10.0">
+          <children>
+            <ImageView id="settings" fitHeight="48.0" fitWidth="48.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+              <image>
+                <Image url="@settings.png" preserveRatio="true" smooth="true" />
+              </image>
+            </ImageView>
+            <Text stroke="BLACK" styleClass="paneTitle" text="系统配置" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="20.0" />
+
+            <ImageView id="download" fitHeight="30.0" fitWidth="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="105.0">
+              <image>
+                <Image url="@download.png" preserveRatio="true" smooth="true" />
+              </image>
+            </ImageView>
+            <Text fx:id="textHandRefresh" stroke="#0c9900" styleClass="textbtn" text="%HandRefresh" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="110.0" />
+            
+            <ImageView id="autologin" fitHeight="30.0" fitWidth="30.0" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="150.0">
+              <image>
+                <Image url="@autologin.png" preserveRatio="true" smooth="true" />
+              </image>
+            </ImageView>
+            <Text fx:id="textAutoLogin" stroke="BLACK" styleClass="textbtn" text="%SetAutoLogin" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="155.0" />
+
+            <ImageView id="reset" fitHeight="30.0" fitWidth="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="195.0">
+              <image>
+                <Image url="@reset.png" preserveRatio="true" smooth="true" />
+              </image>
+            </ImageView>
+            <Text id="text" fx:id="textResetConfig" stroke="BLACK" styleClass="textbtn" text="%ResetConfig" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="200.0" />
+
+            <ImageView id="update" fitHeight="30.0" fitWidth="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="240.0">
+              <image>
+                <Image url="@update.png" preserveRatio="true" smooth="true" />
+              </image>
+            </ImageView>
+            <Text id="txtUpdate" fx:id="textUpdate" stroke="BLACK" styleClass="textbtn" text="检查版本更新" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="245.0" />
+          </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="400.0" prefWidth="520.0" AnchorPane.leftAnchor="440.0" AnchorPane.topAnchor="10.0">
+          <children>
+            <Text stroke="BLACK" styleClass="paneTitle" text="意见反馈" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="20.0" />
+            <ImageView id="feedback" fitHeight="48.0" fitWidth="48.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+              <image>
+                <Image url="@email.png" preserveRatio="true" smooth="true" />
+              </image>
+            </ImageView>
+            <Label layoutX="19.0" layoutY="90.0" styleClass="itemlabel" text="联系方式" />
+            <TextField id="tfName" fx:id="tfContact" layoutX="95.0" layoutY="87.0" prefWidth="400.0" />
+            <Label layoutX="19.0" layoutY="125.0" styleClass="itemlabel" text="意见" />
+            <TextArea id="ta" fx:id="taSuggestion" layoutX="19.0" layoutY="153.0" prefHeight="170.6171875" prefWidth="476.0" wrapText="true" />
+            <Button fx:id="btnSend" layoutX="447.0" layoutY="343.0" mnemonicParsing="false" styleClass="itembtn" text="发送" />
+          </children>
+        </AnchorPane>
+      </children>
+    </AnchorPane>
+  </children>
+  <stylesheets>
+    <URL value="@smarthome.css" />
+  </stylesheets>
+</AnchorPane>

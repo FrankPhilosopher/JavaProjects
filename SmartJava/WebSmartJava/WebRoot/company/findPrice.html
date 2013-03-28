@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>配送点间价格列表 - 物流管理系统</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<style media="all" type="text/css">
+		@import "../style/all.css";
+		@import "../style/jquery/ui.all.css";
+	</style>
+	<script type="text/javascript" src="../script/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../script/jquery-ui-personalized-1.6rc6.min.js"></script>
+	<script type="text/javascript" src="../script/date.js"></script>
+	<script type="text/javascript" src='../script/common.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			datepicker('.date-six');
+		});
+		function del(url){
+			if(window.confirm("确认删除吗？")){
+				
+			}
+		}
+	</script>
+</head>
+<body style="background: none">
+	<div class="top-bar">
+		<h1>查询配送点间价格</h1>
+		
+	</div>
+	<form>
+		  <div class="select-bar">
+			<table class="select-table">
+				<tr>
+					<th>选择起始配送点</th>
+					<td>
+						<select style="width:130px">
+							<option>长沙市</option>
+							<option>广州市</option>
+							<option>深圳市</option>
+						</select>
+					</td>
+                                        <td></td><td></td>
+                                </tr>
+                                <tr>
+					<th>选择终点配送点</th>
+					<td>
+                                                <select style="width:130px">
+							<option>长沙市</option>
+							<option>广州市</option>
+							<option>深圳市</option>
+						</select>
+                                        </td>
+                                        <td></td><td></td>
+				</tr>
+				<tr>				
+					<th><input type="button" name="Submit" onclick="javascript:window.location.href=''" value="点击查询" class="button"/></th>				
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+
+			</table>
+
+
+
+
+
+	</form>
+		  </div>
+			<div class="table">
+				<img src="../style/img/bg-th-left.gif" width="8" height="7" alt="" class="left" />
+				<img src="../style/img/bg-th-right.gif" width="7" height="7" alt="" class="right" />
+				<table class="listing" cellpadding="0" cellspacing="0">
+					<tr>	
+						<th>配送点价格编号</th>	
+						<th>起始配送点名称</th>			
+						<th>终点配送点名称</th>
+						<th>首公斤价格</th>
+						<th>次公斤价格</th>		
+						<th>操作</th>
+					</tr>
+					<tr>
+						<td><a href="">0001</a></td>
+						<td><a href="../cus/detail.html">广州市</a></td>
+						<td>深圳市</td>
+						<td>50.0 元</td>
+                                                <td>30.0 元</td>
+						
+						<td><a href="updatePrice.html" class="table_op_a"><img src="../style/img/edit-icon.gif" onclick="'" width="16" height="16" alt="" />修改</a><a href="" class="table_op_a" onclick="del()"> <img src="../style/img/hr.gif" onclick="" width="16" height="16" alt="" />删除</a> </td>
+					</tr>
+					<tr>
+						<td><a href="">0002</a></td>
+						<td><a href="../cus/detail.html">长沙市</a></td>
+						<td>衡阳市</td>
+						<td>50.0 元</td>
+                                                <td>30.0 元</td>
+						
+					<td><a href="updatePrice.html" class="table_op_a"><img src="../style/img/edit-icon.gif" onclick="'" width="16" height="16" alt="" />修改</a><a href="" class="table_op_a" onclick="del()"> <img src="../style/img/hr.gif" onclick="" width="16" height="16" alt="" />删除</a> </td>
+					</tr>
+                                        <tr>
+						<td><a href="">0001</a></td>
+						<td><a href="../cus/detail.html">广州市</a></td>
+						<td>深圳市</td>
+						<td>50.0 元</td>
+                                                <td>30.0 元</td>
+						
+						<td><a href="updatePrice.html" class="table_op_a"><img src="../style/img/edit-icon.gif" onclick="'" width="16" height="16" alt="" />修改</a><a href="" class="table_op_a" onclick="del()"> <img src="../style/img/hr.gif" onclick="" width="16" height="16" alt="" />删除</a> </td>
+					</tr>
+                                        <tr>
+						<td><a href="">0001</a></td>
+						<td><a href="../cus/detail.html">广州市</a></td>
+						<td>深圳市</td>
+						<td>50.0 元</td>
+                                                <td>30.0 元</td>
+						
+					<td><a href="updatePrice.html" class="table_op_a"><img src="../style/img/edit-icon.gif" onclick="'" width="16" height="16" alt="" />修改</a><a href="" class="table_op_a" onclick="del()"> <img src="../style/img/hr.gif" onclick="" width="16" height="16" alt="" />删除</a> </td>
+					</tr>
+                                        <tr>
+						<td><a href="">0001</a></td>
+						<td><a href="../cus/detail.html">广州市</a></td>
+						<td>深圳市</td>
+						<td>50.0 元</td>
+                                                <td>30.0 元</td>
+						
+						<td><a href="updatePrice.html" class="table_op_a"><img src="../style/img/edit-icon.gif" onclick="'" width="16" height="16" alt="" />修改</a><a href="" class="table_op_a" onclick="del()"> <img src="../style/img/hr.gif" onclick="" width="16" height="16" alt="" />删除</a> </td>
+					</tr>
+                                        <tr>
+						<td><a href="">0001</a></td>
+						<td><a href="../cus/detail.html">广州市</a></td>
+						<td>深圳市</td>
+						<td>50.0 元</td>
+                                                <td>30.0 元</td>
+						
+						<td><a href="updatePrice.html" class="table_op_a"><img src="../style/img/edit-icon.gif" onclick="'" width="16" height="16" alt="" />修改</a><a href="" class="table_op_a" onclick="del()"> <img src="../style/img/hr.gif" onclick="" width="16" height="16" alt="" />删除</a> </td>
+					</tr>
+				</table>
+				<div class="pager">
+					共59条记录 每页<input type="text" class="text" size="2" value="10"/>条
+					第1页/共5页
+					<a href="">第一页</a>
+					<a href="">上一页</a>
+					<a href="">下一页</a>
+					<a href="">最后一页</a>
+					转到<input type="text" class="text" size="1" value="1"/>页
+					<input type="button" class="button" onclick="" value="GO"/>
+				</div>
+			</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Yinger HomePage</title>
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+		<link rel="stylesheet" href="css/photos-gallery.css" type="text/css" />
+		<!-- The JavaScript -->
+		<script src="js/3DAnimation.js" type="text/javascript"></script><!--首部3d滚动使用的-->
+		<script type="text/javascript" src="js/photos-jquery-1.4.2.min.js"></script><!--相册滚动使用的js-->
+		<script type="text/javascript" src="js/photos-jcarousellite.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$(".carousel").jCarouselLite({
+					visible : 1,
+					btnNext : ".next",
+					btnPrev : ".prev"
+				});
+			});
+		</script>
+	</head>
+	<body style="margin: 0 auto;">
+		<div id="wrap">
+			<div id="header">
+				<script src="js/3dheader_bak.js" type="text/javascript"></script>
+			</div>
+			<div id="wraptop"></div>
+			<div id="nav">
+				<ul>
+					<li >
+						<a href="index.html">Home</a>
+					</li>
+					<li>
+						<a href="portfolio.html">Portfolio</a>
+					</li>
+					<li>
+						<a href="blog.html">Blog</a>
+					</li>
+					<li id="current">
+						<a href="photos.html">Photos</a>
+					</li>
+					<li>
+						<a href="contact.html">Contact</a>
+					</li>
+					<li>
+						<a href="exercise.html">Exercise</a>
+					</li>
+				</ul>
+				<!--
+				<form id="qsearch" action="index.html" method="get" >
+				<p>
+				<label for="qsearch">Search:</label>
+				<input class="tbox" type="text" name="qsearch" value="Search this site..." />
+				<input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="images/search.gif" />
+				</p>
+				</form>
+				-->
+			</div>
+			<div id="content">
+				<div id="main" style="width:100%;">
+					<div class="carousel-box">
+						<div class="inner">
+							<div class="carousel">
+								<ul>
+									<li>
+										<a href="#"><img src="images/gallery-1.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-2.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-3.jpg" alt="" width="227" height="147" class="extra" /></a><a href="#"><img src="images/gallery-4.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-5.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-6.jpg" alt="" width="227" height="147" class="extra" /></a><a href="#"><img src="images/gallery-7.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-8.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-9.jpg" alt="" width="227" height="147" class="extra" /></a>
+									</li>
+									<li>
+										<a href="#"><img src="images/gallery-4.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-5.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-6.jpg" alt="" width="227" height="147" class="extra" /></a><a href="#"><img src="images/gallery-1.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-2.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-3.jpg" alt="" width="227" height="147" class="extra" /></a><a href="#"><img src="images/gallery-7.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-8.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-9.jpg" alt="" width="227" height="147" class="extra" /></a>
+									</li>
+									<li>
+										<a href="#"><img src="images/gallery-7.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-8.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-9.jpg" alt="" width="227" height="147" class="extra" /></a><a href="#"><img src="images/gallery-1.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-2.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-3.jpg" alt="" width="227" height="147" class="extra" /></a><a href="#"><img src="images/gallery-4.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-5.jpg" alt="" width="227" height="147" /></a><a href="#"><img src="images/gallery-6.jpg" alt="" width="227" height="147" class="extra" /></a>
+									</li>
+								</ul>
+							</div>
+							<button class="prev"></button>
+							<button class="next"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				<p>
+					&copy; yinger-Central South University
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Design by : <a href="http://www.cnblogs.com/yinger/"><span>yinger</span></a>
+					<br/>
+					Valid <a href="http://validator.w3.org/check?uri=referer">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<img src="images/home.png" /><a href="index.html">Home</a>&nbsp;|&nbsp;<img src="images/sitemap.png" /><a href="index.html">Sitemap</a>&nbsp;|&nbsp;<img src="images/rssfeed.png" /><a href="index.html">RSS Feed</a>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-preview-i18n-resource smarthome.properties?>
+
+<AnchorPane id="AnchorPane" fx:id="updatePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="360.0" styleClass="loginShell" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.UpdateController">
+  <children>
+    <Text stroke="BLACK" styleClass="shellTitle" text="版本更新" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="6.0" />
+    <ImageView id="winmin" fx:id="ivWinmin" styleClass="winmin" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winmin.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <ImageView id="winclose" fx:id="ivWinclose" styleClass="winclose" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="6.0">
+      <image>
+        <Image url="@winclose.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <TextArea fx:id="taDiscription" layoutX="25.0" layoutY="123.0" prefHeight="140.0" prefWidth="317.0" wrapText="true" />
+    <Label layoutX="25.0" layoutY="94.0" styleClass="smartLabel" text="更新内容：" />
+    <Label layoutX="25.0" layoutY="44.0" styleClass="smartLabel" text="最新版本：" />
+    <Label layoutX="25.0" layoutY="69.0" styleClass="smartLabel" text="下载地址：" />
+    <Label id="lblVersionCode" fx:id="lblEdition" layoutX="105.0" layoutY="44.0" prefWidth="130.0" styleClass="smartLabel" />
+    <Label fx:id="lblMessage" layoutX="25.0" layoutY="277.0" prefWidth="317.0" styleClass="smartLabel" />
+    <Label fx:id="lblUrl" layoutX="102.0" layoutY="69.0" prefHeight="15.0" prefWidth="240.0" styleClass="hylk" />
+  </children>
+  <stylesheets>
+    <URL value="@smarthome.css" />
+  </stylesheets>
+</AnchorPane>
